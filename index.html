@@ -131,36 +131,7 @@
   @media print{.toc{position:static;backdrop-filter:none;background:var(--bg-2)}.cover{page-break-after:always}.section{page-break-inside:avoid}}
 
   /* Conclusion section - consistent with other sections */
-  .conclusion-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal));color:#fff;border-radius:8px;padding:14px 18px;margin:20px 0}
-  .conclusion-hero .hero-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-  .conclusion-hero .hero-rating-label{font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:4px}
-  .conclusion-hero .hero-stars{font-size:18px;font-weight:700;letter-spacing:2px;color:#ffd700}
-  .conclusion-hero .hero-sub{font-size:13px;font-weight:500;color:rgba(255,255,255,0.90);margin-top:2px}
-  .conclusion-hero .hero-verdict-box{background:rgba(255,255,255,0.12);border-radius:8px;padding:10px 16px;text-align:center}
-  .conclusion-hero .hero-verdict-label{font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:2px}
-  .conclusion-hero .hero-verdict{font-size:14px;font-weight:700;color:#7dffb3}
-  .conclusion-hero .hero-text{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.7}
-  .conclusion-hero .hero-text strong{color:#ffd700}
-  .conclusion-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-  .conclusion-card{border:1px solid var(--rule);border-radius:8px;padding:14px 18px;background:var(--bg-card)}
-  .conclusion-card-title{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-  .pass-tags{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-  .pass-tag{background:var(--green-light);border-radius:4px;padding:6px 10px;font-size:12px;font-weight:500;color:var(--green)}
-  .risk-list{list-style:none;padding:0}
-  .risk-list li{font-size:13px;color:var(--ink-2);padding:4px 0;line-height:1.6}
-  .action-title{font-size:15px;font-weight:700;color:var(--teal);margin:20px 0 12px}
-  .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .action-card{border:1px solid var(--rule);border-radius:8px;padding:14px 18px;background:var(--bg-card)}
-  .action-icon{font-size:22px;margin-bottom:4px}
-  .action-name{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px}
-  .action-desc{font-size:12px;color:var(--ink-3);line-height:1.6}
-  .conclusion-metrics{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-top:20px}
-  .conclusion-metrics-inner{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
-  .conclusion-metric{padding:10px 8px;border-right:1px solid var(--rule)}
-  .conclusion-metric:last-child{border-right:none}
-  .conclusion-metric-label{font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px}
-  .conclusion-metric-value{font-size:13px;font-weight:600;color:var(--teal)}
-  @media(max-width:600px){.conclusion-grid{grid-template-columns:1fr}.action-grid{grid-template-columns:1fr}.conclusion-metrics-inner{grid-template-columns:repeat(2,1fr)}}
+
 
 </style>
 </head>
@@ -426,71 +397,75 @@
 <section class="section" id="s6">
   <div class="section-header"><span class="section-num">06</span><h2 class="section-title">研判结论</h2></div>
 
-  <div class="conclusion-hero">
-    <div class="hero-header">
+  <!-- Verdict box using verdict-banner pattern (already exists) -->
+  <div class="verdict-banner" style="margin:24px 0;">
+    <strong>✓ 建议推进 License-in 中国权益</strong> — 索托拉西布完全通过标准化快速筛选全部四项审查标准（治疗领域、合作模式、地域权益、研发阶段），同时触发机会性绿色通道三项特征（数据颠覆性、机制首创性、商业稀缺性）。中国权益获取路径已有先例验证（海南成美、百济神州），建议以标准化快速筛选通道优先推进 License-in。
+  </div>
+
+  <!-- Rating row - using screen-data pattern -->
+  <div class="screen-data" style="background:linear-gradient(135deg,var(--teal-dark),var(--teal));color:#fff;border:none;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
       <div>
-        <div class="hero-rating-label">综合评级</div>
-        <div class="hero-stars">★★★★★</div>
-        <div class="hero-sub">重点跟进项目</div>
+        <div style="font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:2px;">综合评级</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:2px;color:#ffd700;">★★★★★</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-top:2px;">重点跟进项目</div>
       </div>
-      <div class="hero-verdict-box">
-        <div class="hero-verdict-label">研判结论</div>
-        <div class="hero-verdict">✓ 建议推进 License-in</div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:8px;padding:8px 16px;text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:2px;">研判结论</div>
+        <div style="font-size:15px;font-weight:700;color:#7dffb3;">✓ 建议推进 License-in</div>
       </div>
-    </div>
-    <div class="hero-text">
-      索托拉西布<strong>完全通过标准化快速筛选全部四项审查标准</strong>（治疗领域、合作模式、地域权益、研发阶段），
-      同时触发机会性绿色通道三项特征（数据颠覆性、机制首创性、商业稀缺性）。
-      中国权益获取路径已有先例验证（海南成美、百济神州），建议以标准化快速筛选通道优先推进 License-in。
     </div>
   </div>
 
-  <div class="conclusion-grid">
-    <div class="conclusion-card">
-      <div class="conclusion-card-title">✅ 轨道审查通过项</div>
-      <div class="pass-tags">
-        <div class="pass-tag">治疗领域 ✓</div>
-        <div class="pass-tag">合作模式 ✓</div>
-        <div class="pass-tag">地域权益 ✓</div>
-        <div class="pass-tag">研发阶段 ✓</div>
+  <!-- Two-column using screen-result pattern -->
+  <div class="screen-result" style="border-color:var(--green-light);padding:16px 18px;margin:16px 0;">
+    <div style="flex:1;">
+      <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:8px;">✅ 轨道审查通过项</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">治疗领域 ✓</div>
+        <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">合作模式 ✓</div>
+        <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">地域权益 ✓</div>
+        <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">研发阶段 ✓</div>
       </div>
     </div>
-    <div class="conclusion-card">
-      <div class="conclusion-card-title">⚠️ 风险提示</div>
-      <ul class="risk-list">
-        <li>• 同业竞品（Adagrasib 等）中国推进可能缩短独占窗口期</li>
-        <li>• 国家医保谈判存在降价压力，需测算不同情景下投资回报</li>
-        <li>• NMPA 对附条件批准审评收紧趋势需关注</li>
+    <div style="flex:1;padding-left:18px;border-left:1px solid var(--rule);">
+      <div style="font-size:13px;font-weight:700;color:var(--gold-dark);margin-bottom:8px;">⚠️ 风险提示</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="font-size:12px;color:var(--ink-2);padding:3px 0;line-height:1.6;">• 同业竞品（Adagrasib 等）中国推进可能缩短独占窗口期</li>
+        <li style="font-size:12px;color:var(--ink-2);padding:3px 0;line-height:1.6;">• 国家医保谈判存在降价压力，需测算不同情景下投资回报</li>
+        <li style="font-size:12px;color:var(--ink-2);padding:3px 0;line-height:1.6;">• NMPA 对附条件批准审评收紧趋势需关注</li>
       </ul>
     </div>
   </div>
 
-  <div class="action-title">行动建议</div>
-  <div class="action-grid">
-    <div class="action-card">
-      <div class="action-icon">🤝</div>
-      <div class="action-name">License-in 中国权益</div>
-      <div class="action-desc">借鉴乐城/百济先例，优先推进中国境内商业化权益引进，抢占百亿级 KRAS G12C 靶向治疗市场</div>
-    </div>
-    <div class="action-card">
-      <div class="action-icon">🔬</div>
-      <div class="action-name">联合用药开发</div>
-      <div class="action-desc">依托已有临床合作先例（BridgeBio、Verastem、BI），探索与自研管线联合用药的临床开发机会</div>
-    </div>
-    <div class="action-card">
-      <div class="action-icon">🌏</div>
-      <div class="action-name">亚太区域分销</div>
-      <div class="action-desc">借力日本 PMDA 已获批优势，拓展亚太及新兴市场商业化合作网络</div>
+  <!-- Action cards - using screen-data pattern -->
+  <div style="margin:20px 0;">
+    <div style="font-size:15px;font-weight:700;color:var(--teal);margin-bottom:12px;">行动建议</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div class="screen-data" style="margin:0;min-height:100px;">
+        <div style="font-size:22px;margin-bottom:4px;">🤝</div>
+        <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">License-in 中国权益</div>
+        <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">借鉴乐城/百济先例，优先推进中国境内商业化权益引进，抢占百亿级 KRAS G12C 靶向治疗市场</div>
+      </div>
+      <div class="screen-data" style="margin:0;min-height:100px;">
+        <div style="font-size:22px;margin-bottom:4px;">🔬</div>
+        <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">联合用药开发</div>
+        <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">依托已有临床合作先例（BridgeBio、Verastem、BI），探索与自研管线联合用药的临床开发机会</div>
+      </div>
+      <div class="screen-data" style="margin:0;min-height:100px;">
+        <div style="font-size:22px;margin-bottom:4px;">🌏</div>
+        <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">亚太区域分销</div>
+        <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">借力日本 PMDA 已获批优势，拓展亚太及新兴市场商业化合作网络</div>
+      </div>
     </div>
   </div>
 
-  <div class="conclusion-metrics">
-    <div class="conclusion-metrics-inner">
-      <div class="conclusion-metric"><div class="conclusion-metric-label">推荐动作</div><div class="conclusion-metric-value">License-in</div></div>
-      <div class="conclusion-metric" style="border-right:1px solid var(--rule);"><div class="conclusion-metric-label">中国获批预期</div><div class="conclusion-metric-value">3-4 年</div></div>
-      <div class="conclusion-metric" style="border-right:1px solid var(--rule);"><div class="conclusion-metric-label">推荐合作模式</div><div class="conclusion-metric-value">License-in / Distribution</div></div>
-      <div class="conclusion-metric"><div class="conclusion-metric-label">报告编号</div><div class="conclusion-metric-value">DR-20260528-001</div></div>
-    </div>
+  <!-- Bottom metrics bar -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);text-align:center;background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-top:20px;">
+    <div style="padding:10px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐动作</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in</div></div>
+    <div style="padding:10px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">中国获批预期</div><div style="font-size:13px;font-weight:600;color:var(--teal);">3-4 年</div></div>
+    <div style="padding:10px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐合作模式</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in / Distribution</div></div>
+    <div style="padding:10px 8px;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">报告编号</div><div style="font-size:13px;font-weight:600;color:var(--teal);">DR-20260528-001</div></div>
   </div>
 </section><div class="footer">
   <strong>索托拉西布（Sotorasib/LUMAKRAS）项目评估报告</strong><br>
