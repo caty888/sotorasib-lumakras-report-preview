@@ -133,6 +133,8 @@
   /* Conclusion section - consistent with other sections */
 
 
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 </style>
 </head>
 <body>
@@ -415,17 +417,17 @@
     </div>
   </div>
 
-  <div style="display:flex;gap:14px;margin:14px 0;">
-    <div class="screen-data" style="flex:1;margin:0;">
+  <div class="grid2">
+    <div class="screen-data" style="margin:0;">
       <div style="font-size:14px;font-weight:700;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:6px;">✅ 轨道审查通过项</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+      <div class="grid2" style="gap:6px;">
         <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">治疗领域 ✓</div>
         <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">合作模式 ✓</div>
         <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">地域权益 ✓</div>
         <div style="background:var(--green-light);border-radius:4px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--green);text-align:center;">研发阶段 ✓</div>
       </div>
     </div>
-    <div class="screen-data" style="flex:1;margin:0;">
+    <div class="screen-data" style="margin:0;">
       <div style="font-size:14px;font-weight:700;color:var(--gold-dark);margin-bottom:10px;display:flex;align-items:center;gap:6px;">⚠️ 风险提示</div>
       <div style="font-size:13px;color:var(--ink-2);line-height:1.7;">
         • 同业竞品（Adagrasib 等）中国推进可能缩短独占窗口期<br>
@@ -437,30 +439,30 @@
 
   <div style="font-size:15px;font-weight:700;color:var(--teal);margin:20px 0 12px;">行动建议</div>
 
-  <div style="display:flex;gap:14px;margin:0 0 14px 0;">
-    <div class="screen-data" style="flex:1;margin:0;">
+  <div class="t2-grid" style="margin:0 0 14px 0;">
+    <div class="t2-card" style="padding:14px 18px;">
       <div style="font-size:22px;margin-bottom:4px;">🤝</div>
-      <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">License-in 中国权益</div>
-      <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">借鉴乐城/百济先例，优先推进中国境内商业化权益引进，抢占百亿级 KRAS G12C 靶向治疗市场</div>
+      <div style="font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px;">License-in 中国权益</div>
+      <div style="font-size:13px;color:var(--ink-3);line-height:1.6;">借鉴乐城/百济先例，优先推进中国境内商业化权益引进，抢占百亿级 KRAS G12C 靶向治疗市场</div>
     </div>
-    <div class="screen-data" style="flex:1;margin:0;">
+    <div class="t2-card" style="padding:14px 18px;">
       <div style="font-size:22px;margin-bottom:4px;">🔬</div>
-      <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">联合用药开发</div>
-      <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">依托已有临床合作先例（BridgeBio、Verastem、BI），探索与自研管线联合用药的临床开发机会</div>
+      <div style="font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px;">联合用药开发</div>
+      <div style="font-size:13px;color:var(--ink-3);line-height:1.6;">依托已有临床合作先例（BridgeBio、Verastem、BI），探索与自研管线联合用药的临床开发机会</div>
     </div>
-    <div class="screen-data" style="flex:1;margin:0;">
+    <div class="t2-card" style="padding:14px 18px;">
       <div style="font-size:22px;margin-bottom:4px;">🌏</div>
-      <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px;">亚太区域分销</div>
-      <div style="font-size:12px;color:var(--ink-3);line-height:1.5;">借力日本 PMDA 已获批优势，拓展亚太及新兴市场商业化合作网络</div>
+      <div style="font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px;">亚太区域分销</div>
+      <div style="font-size:13px;color:var(--ink-3);line-height:1.6;">借力日本 PMDA 已获批优势，拓展亚太及新兴市场商业化合作网络</div>
     </div>
   </div>
 
   <div class="screen-data" style="margin:0;padding:0;">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);text-align:center;">
-      <div style="padding:12px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐动作</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in</div></div>
-      <div style="padding:12px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">中国获批预期</div><div style="font-size:13px;font-weight:600;color:var(--teal);">3-4 年</div></div>
-      <div style="padding:12px 8px;border-right:1px solid var(--rule);"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐合作模式</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in / Distribution</div></div>
-      <div style="padding:12px 8px;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">报告编号</div><div style="font-size:13px;font-weight:600;color:var(--teal);">DR-20260528-001</div></div>
+    <div class="grid2" style="grid-template-columns:repeat(4,1fr);gap:0;">
+      <div style="padding:12px 8px;border-right:1px solid var(--rule);text-align:center;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐动作</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in</div></div>
+      <div style="padding:12px 8px;border-right:1px solid var(--rule);text-align:center;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">中国获批预期</div><div style="font-size:13px;font-weight:600;color:var(--teal);">3-4 年</div></div>
+      <div style="padding:12px 8px;border-right:1px solid var(--rule);text-align:center;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">推荐合作模式</div><div style="font-size:13px;font-weight:600;color:var(--teal);">License-in / Distribution</div></div>
+      <div style="padding:12px 8px;text-align:center;"><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.1em;margin-bottom:2px;">报告编号</div><div style="font-size:13px;font-weight:600;color:var(--teal);">DR-20260528-001</div></div>
     </div>
   </div>
 </section><div class="footer">
