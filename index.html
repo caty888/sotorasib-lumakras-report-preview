@@ -8,14 +8,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>索托拉西布（Sotorasib/LUMAKRAS）项目检索报告</title>
+<title>索托拉西布（Sotorasib/LUMAKRAS）BD项目评估报告</title>
 
 <link href="https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
   :root {
-    /* Restyled palette: 靛蓝主色 + 冰蓝底色 + 柔珊瑚强调，去掉原来的深绿/金色厚重感 */
     --teal: #3547a6;
     --teal-2: #6577d8;
     --teal-dark: #1f2a63;
@@ -51,8 +50,9 @@
     line-height: 1.8;
     min-height: 100vh;
   }
+  .report-scale-host { width: 100%; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; background: var(--bg); }
+  .report-canvas { width: 1440px; max-width: 1440px; transform-origin: top center; background: var(--bg); }
 
-  /* === COVER === */
   .cover {
     background: linear-gradient(145deg, #1b245c 0%, #3547a6 52%, #7d8bea 100%);
     color: #fff;
@@ -69,204 +69,44 @@
       radial-gradient(ellipse 300px 300px at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
     pointer-events: none;
   }
-  .cover-pattern {
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 500px; height: 500px;
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .cover-pattern::after {
-    content: '';
-    position: absolute;
-    top: 60px; right: 60px;
-    width: 380px; height: 380px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 50%;
-  }
-  .cover-deco-line {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 5%, #ffb4aa 28%, #d16d5f 72%, transparent 95%);
-    opacity: 0.55;
-  }
-  .cover-label {
-    position: relative; z-index: 1;
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 28px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .cover-title {
-    position: relative; z-index: 1;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .cover-title-sub {
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 36px;
-    font-weight: 300;
-    position: relative; z-index: 1;
-  }
-  .cover-tags {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px;
-    position: relative; z-index: 1;
-  }
-  .cover-tag {
-    font-size: 11px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.20);
-    color: rgba(255,255,255,0.8);
-    padding: 4px 14px;
-    border-radius: 3px;
-    letter-spacing: 0.05em;
-    font-weight: 400;
-  }
-  .cover-meta {
-    display: flex;
-    gap: 48px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 24px;
-    position: relative; z-index: 1;
-    flex-wrap: wrap;
-  }
+  .cover-pattern { position: absolute; top: -60px; right: -60px; width: 500px; height: 500px; border: 1px solid rgba(255,255,255,0.10); border-radius: 50%; pointer-events: none; }
+  .cover-pattern::after { content: ''; position: absolute; top: 60px; right: 60px; width: 380px; height: 380px; border: 1px solid rgba(255,255,255,0.08); border-radius: 50%; }
+  .cover-deco-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent 5%, #ffb4aa 28%, #d16d5f 72%, transparent 95%); opacity: 0.55; }
+  .cover-label { position: relative; z-index: 1; font-size: 11px; letter-spacing: 0.25em; color: rgba(255,255,255,0.45); margin-bottom: 28px; font-family: 'JetBrains Mono', monospace; }
+  .cover-title { position: relative; z-index: 1; font-family: 'Noto Serif SC', serif; font-size: 42px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .cover-title-sub { font-size: 18px; color: rgba(255,255,255,0.6); margin-bottom: 36px; font-weight: 300; position: relative; z-index: 1; }
+  .cover-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px; position: relative; z-index: 1; }
+  .cover-tag { font-size: 11px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: rgba(255,255,255,0.8); padding: 4px 14px; border-radius: 3px; letter-spacing: 0.05em; font-weight: 400; }
+  .cover-meta { display: flex; gap: 48px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; position: relative; z-index: 1; flex-wrap: wrap; }
   .cover-meta-item { font-size: 13px; }
   .cover-meta-label { color: rgba(255,255,255,0.35); margin-bottom: 4px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
   .cover-meta-value { color: rgba(255,255,255,0.85); font-weight: 500; }
 
-  /* === NAV === */
-  .toc {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule);
-    padding: 0 60px;
-    position: sticky; top: 0; z-index: 100;
-  }
-  .toc-inner {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 14px 0;
-  }
+  .toc { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); padding: 0 60px; position: sticky; top: 0; z-index: 100; }
+  .toc-inner { display: flex; gap: 0; overflow-x: auto; max-width: 1040px; margin: 0 auto; padding: 14px 0; }
   .toc-inner::-webkit-scrollbar { height: 0; }
-  .toc-item {
-    font-size: 12px;
-    color: var(--ink-3);
-    text-decoration: none;
-    padding: 6px 18px;
-    border-radius: 4px;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    border: 1px solid transparent;
-    flex-shrink: 0;
-  }
-  .toc-item:hover { background: var(--teal-light); color: var(--teal); border-color: rgba(13,94,94,0.15); }
+  .toc-item { font-size: 12px; color: var(--ink-3); text-decoration: none; padding: 6px 18px; border-radius: 4px; white-space: nowrap; transition: all 0.2s ease; font-weight: 500; letter-spacing: 0.02em; border: 1px solid transparent; flex-shrink: 0; }
+  .toc-item:hover { background: var(--teal-light); color: var(--teal); border-color: rgba(53,71,166,0.15); }
 
-  /* === MAIN LAYOUT === */
-  .report-scale-host {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    background: var(--bg);
-  }
-  .report-canvas {
-    width: 1440px;
-    max-width: 1440px;
-    transform-origin: top center;
-    background: var(--bg);
-  }
   .main { max-width: 1040px; margin: 0 auto; padding: 56px 40px; }
   @media (max-width: 1024px) { .main { padding: 40px 32px; } }
 
-  /* === SECTION === */
   .section { margin-bottom: 60px; }
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 28px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--teal);
-  }
-  .section-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--teal);
-    background: var(--teal-light);
-    padding: 2px 10px;
-    border-radius: 3px;
-    font-weight: 500;
-  }
-  .section-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--teal-dark);
-    letter-spacing: -0.01em;
-  }
+  .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 2px solid var(--teal); }
+  .section-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); background: var(--teal-light); padding: 2px 10px; border-radius: 3px; font-weight: 500; }
+  .section-title { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 700; color: var(--teal-dark); letter-spacing: -0.01em; }
   .subsection { margin: 28px 0; }
-  .subsection-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .subsection-title .icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 3px;
-    background: var(--gold-muted);
-    color: var(--gold-dark);
-    font-size: 11px;
-    flex-shrink: 0;
-  }
+  .subsection-title { font-size: 16px; font-weight: 700; color: var(--teal); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .subsection-title .icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 3px; background: var(--gold-muted); color: var(--gold-dark); font-size: 11px; flex-shrink: 0; }
   p { margin-bottom: 14px; font-size: 14px; color: var(--ink-2); line-height: 1.85; }
 
-  /* === KEYDATA GRID === */
-  .keydata {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 14px;
-    margin: 24px 0;
-    align-items: stretch;
-  }
-  .keydata-card {
-    min-width: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 18px 16px;
-    transition: box-shadow 0.2s ease;
-    height: 100%;
-  }
+  .keydata { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 24px 0; align-items: stretch; }
+  .keydata-card { min-width: 0; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 18px 16px; transition: box-shadow 0.2s ease; height: 100%; }
   .keydata-card:hover { box-shadow: 0 8px 24px rgba(53,71,166,0.10); }
   .keydata-label { font-size: 10px; color: var(--ink-4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; font-weight: 500; }
   .keydata-value { font-size: 20px; font-weight: 700; color: var(--teal); font-family: 'Noto Serif SC', serif; line-height: 1.2; }
   .keydata-sub { font-size: 11px; color: var(--ink-4); margin-top: 4px; }
 
-  /* === TABLE === */
   .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid var(--rule); }
   table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--bg-card); }
   thead tr { background: var(--teal); color: #fff; }
@@ -277,210 +117,64 @@
   tbody td { padding: 11px 14px; color: var(--ink-2); line-height: 1.5; vertical-align: top; }
   .td-bold { font-weight: 600; color: var(--ink); }
 
-  /* === BADGES === */
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 10px;
-    border-radius: 3px;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 3px; letter-spacing: 0.05em; white-space: nowrap; }
   .badge-track1 { background: var(--teal-light); color: var(--teal); }
   .badge-track2 { background: var(--gold-light); color: var(--gold-dark); }
   .badge-approved { background: var(--green-light); color: var(--green); }
   .badge-clinical { background: var(--purple-light); color: var(--purple); }
   .badge-warning { background: var(--red-light); color: var(--red); }
+  .badge-pass { background: #e7f3ef; color: #26725f; }
 
-  /* === TIMELINE === */
   .timeline { margin: 24px 0; position: relative; padding-left: 28px; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 4px;
-    bottom: 4px;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--teal), var(--gold), var(--teal));
-    border-radius: 1px;
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 20px;
-    padding-left: 20px;
-  }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: linear-gradient(to bottom, var(--teal), var(--gold), var(--teal)); border-radius: 1px; }
+  .timeline-item { position: relative; margin-bottom: 20px; padding-left: 20px; }
   .timeline-item:last-child { margin-bottom: 0; }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -24px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: 2px solid var(--teal);
-  }
+  .timeline-item::before { content: ''; position: absolute; left: -24px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--teal); }
   .timeline-item.highlight::before { background: var(--gold); border-color: var(--gold); }
-  .timeline-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--teal);
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
+  .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--teal); font-weight: 500; margin-bottom: 2px; }
   .timeline-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
 
-  /* === HIGHLIGHT BOX === */
-  .highlight-box {
-    background: var(--gold-muted);
-    border-left: 3px solid var(--gold);
-    padding: 16px 20px;
-    border-radius: 0 8px 8px 0;
-    margin: 20px 0;
-  }
-  .highlight-box-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold-dark);
-    margin-bottom: 8px;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .highlight-box { background: var(--gold-muted); border-left: 3px solid var(--gold); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  .highlight-box-title { font-size: 13px; font-weight: 700; color: var(--gold-dark); margin-bottom: 8px; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; }
   .highlight-box p { font-size: 13px; margin-bottom: 0; color: var(--ink-2); }
 
-  /* === ASSESSMENT CARD === */
   .assess-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-  .assess-card {
-    background: var(--bg-card);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 20px;
-    transition: box-shadow 0.2s ease;
-  }
-  .assess-card:hover { box-shadow: 0 4px 16px rgba(13,94,94,0.08); }
+  .assess-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; transition: box-shadow 0.2s ease; height: 100%; }
+  .assess-card:hover { box-shadow: 0 4px 16px rgba(53,71,166,0.08); }
   .assess-card-title { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
   .assess-card ul { list-style: none; padding: 0; }
-  .assess-card li {
-    font-size: 13px;
-    color: var(--ink-2);
-    padding: 5px 0;
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.6;
-  }
-  .assess-card li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-weight: 700;
-  }
+  .assess-card li { font-size: 13px; color: var(--ink-2); padding: 5px 0; padding-left: 16px; position: relative; line-height: 1.6; }
+  .assess-card li::before { content: '•'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
 
-  /* === CONCLUSION === */
-  .conclusion-box {
-    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-    color: #fff;
-    border-radius: 10px;
-    padding: 32px 36px;
-    margin: 28px 0;
-  }
-  .conclusion-box-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: rgba(255,255,255,0.95);
-  }
-  .conclusion-box .stars {
-    color: var(--gold);
-    font-size: 18px;
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-  }
+  .criteria-row { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; margin-bottom: 10px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--rule); }
+  .criteria-pass { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; background: var(--green-light); color: var(--green); }
+  .criteria-body { flex: 1; }
+  .criteria-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .criteria-source { font-size: 11px; color: var(--ink-4); font-family: 'JetBrains Mono', monospace; margin-bottom: 5px; }
+  .criteria-detail { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  .criteria-detail .ta-highlight { color: var(--red); }
+
+  .source-tag { display: inline-block; font-size: 10px; font-family: 'JetBrains Mono', monospace; background: var(--bg-2); color: var(--ink-4); padding: 1px 8px; border-radius: 3px; border: 1px solid var(--rule-2); margin-right: 4px; }
+  .source-tag-primary { background: var(--teal-light); color: var(--teal); border-color: rgba(53,71,166,0.20); }
+
+  .conclusion-box { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff; border-radius: 10px; padding: 32px 36px; margin: 28px 0; }
+  .conclusion-box-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: rgba(255,255,255,0.95); }
+  .conclusion-box .stars { color: var(--gold); font-size: 18px; letter-spacing: 4px; margin-bottom: 16px; }
   .conclusion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-  .conclusion-item {
-    background: rgba(255,255,255,0.08);
-    border-radius: 6px;
-    padding: 14px 16px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .conclusion-item-title {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 6px;
-  }
-  .conclusion-item-value {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.5;
-  }
+  .conclusion-item { background: rgba(255,255,255,0.08); border-radius: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.1); }
+  .conclusion-item-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
+  .conclusion-item-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.5; }
 
-  /* === SOURCE BLOCK === */
-  .source-block {
-    background: var(--bg-2);
-    border-left: 3px solid var(--rule-2);
-    padding: 10px 14px;
-    font-size: 12px;
-    color: var(--ink-4);
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;
-    margin: 10px 0 18px;
-    border-radius: 0 4px 4px 0;
-  }
+  .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+  .action-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; transition: box-shadow 0.2s ease; }
+  .action-card:hover { box-shadow: 0 4px 16px rgba(53,71,166,0.08); }
+  .action-icon { font-size: 28px; margin-bottom: 6px; }
+  .action-title { font-size: 13px; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
+  .action-desc { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
 
-  /* === INFO ROW === */
-  .info-row { display: flex; gap: 8px; margin-bottom: 8px; font-size: 14px; }
-  .info-row-label { color: var(--ink-4); min-width: 110px; flex-shrink: 0; font-size: 13px; }
-  .info-row-value { color: var(--ink-2); font-weight: 500; }
-
-  /* === CHECK LIST === */
-  .check-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    background: var(--bg-card);
-    border-radius: 6px;
-    border: 1px solid var(--rule);
-  }
-  .check-item:last-child { margin-bottom: 0; }
-  .check-item-icon {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .check-item-icon.pass { background: var(--green-light); color: var(--green); }
-  .check-item-icon.warn { background: var(--gold-light); color: var(--gold-dark); }
-  .check-item-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
-  .check-item-text strong { color: var(--ink); }
-
-  /* === FOOTER === */
-  .footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.35);
-    text-align: center;
-    padding: 28px 24px;
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    line-height: 1.8;
-  }
+  .footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: center; padding: 28px 24px; font-size: 11px; letter-spacing: 0.05em; line-height: 1.8; }
   .footer strong { color: rgba(255,255,255,0.5); }
 
-  /* === RESPONSIVE === */
   @media (max-width: 900px) {
     .cover { padding: 48px 24px 40px; }
     .cover-title { font-size: 28px; }
@@ -489,6 +183,7 @@
     .main { padding: 32px 20px; }
     .assess-grid, .conclusion-grid { grid-template-columns: 1fr; }
     .keydata { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .action-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
     .cover { padding: 32px 16px 28px; }
@@ -510,16 +205,10 @@
     .timeline { padding-left: 20px; }
     .timeline-item { padding-left: 14px; }
     .assess-grid { grid-template-columns: 1fr; }
+    .action-grid { grid-template-columns: 1fr; }
+    .criteria-row { padding: 12px 14px; flex-direction: column; gap: 8px; }
   }
-  @media print {
-    .toc { position: static; backdrop-filter: none; background: var(--bg-2); }
-    .cover { page-break-after: always; }
-    .section { page-break-inside: avoid; }
-    .keydata-card:hover, .assess-card:hover { box-shadow: none; }
-  }
-  .coop-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:12px; }
-  @media (max-width:700px) { .coop-grid { grid-template-columns:1fr; } }
-
+  @media print { .toc { position: static; backdrop-filter: none; background: var(--bg-2); } .cover { page-break-after: always; } .section { page-break-inside: avoid; } }
 </style>
 
 </head>
@@ -530,66 +219,46 @@
   <div class="report-canvas" id="reportCanvas">
 
 <!-- COVER -->
-
 <div class="cover">
-
   <div class="cover-pattern"></div>
   <div class="cover-deco-line"></div>
-  <div class="cover-label">药物项目检索报告 · 内部参考文件 · DR-20260528-001</div>
-  <div class="cover-title">索托拉西布（Sotorasib）<br>LUMAKRAS 项目评估报告</div>
-  <div class="cover-title-sub">KRAS G12C 抑制剂 · First-in-Class 突破性创新药物</div>
+  <div class="cover-label">BD项目评估报告 · 双轨筛选框架 · 内部参考文件 · DR-20260528-001</div>
+  <div class="cover-title">索托拉西布（Sotorasib）<br>LUMAKRAS 新药价值评估报告</div>
+  <div class="cover-title-sub">KRAS G12C 抑制剂 · First-in-Class · 面向 BD/投资评审</div>
   <div class="cover-tags">
+    <span class="cover-tag">轨道一 ✓</span>
+    <span class="cover-tag">轨道二 ✓</span>
+    <span class="cover-tag">License-in 潜力</span>
     <span class="cover-tag">KRAS G12C</span>
     <span class="cover-tag">非小细胞肺癌</span>
-    <span class="cover-tag">结直肠癌</span>
     <span class="cover-tag">First-in-Class</span>
-    <span class="cover-tag">小分子化药</span>
     <span class="cover-tag">FDA 获批</span>
-    <span class="cover-tag">License-in 潜力</span>
   </div>
   <div class="cover-meta">
-    <div class="cover-meta-item">
-      <div class="cover-meta-label">报告生成时间</div>
-      <div class="cover-meta-value">2026年05月28日</div>
-    </div>
-    <div class="cover-meta-item">
-      <div class="cover-meta-label">数据来源</div>
-      <div class="cover-meta-value">药品商业数据库公开信息</div>
-    </div>
-    <div class="cover-meta-item">
-      <div class="cover-meta-label">原研机构</div>
-      <div class="cover-meta-value">Amgen, Inc.</div>
-    </div>
-    <div class="cover-meta-item">
-      <div class="cover-meta-label">任务ID</div>
-      <div class="cover-meta-value">DR-20260528-001</div>
-    </div>
+    <div class="cover-meta-item"><div class="cover-meta-label">报告生成时间</div><div class="cover-meta-value">2026年05月28日</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">数据来源</div><div class="cover-meta-value">药品商业数据库公开信息</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">原研机构</div><div class="cover-meta-value">Amgen, Inc.</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">任务ID</div><div class="cover-meta-value">DR-20260528-001</div></div>
   </div>
-
 </div>
 
 <!-- TOC -->
-
 <nav class="toc">
-
   <div class="toc-inner">
-    <a href="#s1" class="toc-item">一、项目价值速览</a>
-    <a href="#s2" class="toc-item">二、关键证据链</a>
-    <a href="#s3" class="toc-item">三、创新与绿色通道</a>
-    <a href="#s4" class="toc-item">四、研判与行动建议</a>
+    <a href="#s1" class="toc-item">一、项目概要 &amp; 双轨判定</a>
+    <a href="#s2" class="toc-item">二、轨道一 — 硬指标审查</a>
+    <a href="#s3" class="toc-item">三、轨道二 — 绿色通道</a>
+    <a href="#s4" class="toc-item">四、BD 研判与行动建议</a>
   </div>
-
 </nav>
 
 <div class="main">
 
-<!-- ===== 一、项目价值速览 ===== -->
-
+<!-- ===== 一、项目概要 & 双轨判定 ===== -->
 <section class="section" id="s1">
-
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title">项目价值速览与准入判断</h2>
+    <h2 class="section-title">项目概要 &amp; 双轨判定</h2>
   </div>
 
   <div class="keydata">
@@ -620,253 +289,169 @@
     </div>
   </div>
 
+  <!-- Dual-track verdict -->
+  <div class="subsection">
+    <div class="subsection-title"><span class="icon">◆</span>双轨判定结论</div>
+
+    <div class="criteria-row">
+      <div class="criteria-pass" style="background:var(--green-light);color:var(--green);">✓</div>
+      <div class="criteria-body">
+        <div class="criteria-title">轨道一：标准化快速筛选 → 完全符合</div>
+        <div class="criteria-detail">治疗领域覆盖肿瘤核心领域（NSCLC、结直肠癌）；存在授权引进/商业化合作案例；已在中、美、欧、日获批上市；临床 3 期阶段拓展适应症。符合 <span class="source-tag source-tag-primary">数据来源：【概要】【药物交易】【研发状态】</span></div>
+      </div>
+    </div>
+
+    <div class="criteria-row">
+      <div class="criteria-pass" style="background:var(--gold-light);color:var(--gold-dark);">★</div>
+      <div class="criteria-body">
+        <div class="criteria-title">轨道二：机会性绿色通道 → 具备触发条件</div>
+        <div class="criteria-detail">全球首个获批 KRAS G12C 抑制剂，机制首创；临床数据颠覆性优于 SoC；商业稀缺性突出（口服剂型、First-in-Class、上市初期无直接竞品）。<span class="source-tag source-tag-primary">数据来源：【临床结果】【概要-靶点】【批准-剂型】</span></div>
+      </div>
+    </div>
+  </div>
+
   <div class="subsection">
     <div class="subsection-title"><span class="icon">●</span>靶点与作用机制</div>
-    <p>索托拉西布是一种高选择性、口服小分子 KRAS G12C 抑制剂，通过与 KRAS G12C 突变蛋白的 SWITCH II 区域共价结合，将其锁定在非活化 GDP 结合状态，从而抑制下游 MAPK 信号通路。它革命性地攻克了 KRAS 靶点长达四十余年"不可成药"的行业难题，是全球首个获批上市的 KRAS 抑制剂。</p>
-    <div class="source-block">来源: Canon J, et al. Nature. 2019;575(7781):217-223; FDA Prescribing Information LUMAKRAS.</div>
+    <p>索托拉西布是一种高选择性、口服小分子 KRAS G12C 抑制剂，通过与 KRAS G12C 突变蛋白的 SWITCH II 区域共价结合，将其锁定在非活化 GDP 结合状态，抑制下游 MAPK 信号通路。攻克 KRAS 靶点长达四十余年"不可成药"的行业难题，全球首个获批上市的 KRAS 抑制剂。</p>
+    <div style="font-size:11px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;margin-top:4px;">来源: Canon J, et al. Nature. 2019; FDA Prescribing Information LUMAKRAS.</div>
   </div>
-
-  <div class="subsection">
-    <div class="subsection-title"><span class="icon">◆</span>轨道适配判定</div>
-    <div class="check-item">
-      <div class="check-item-icon pass">✓</div>
-      <div class="check-item-text"><strong>轨道一：标准化快速筛选 — 完全符合硬指标</strong><br>治疗领域覆盖肿瘤、消化系统等核心领域；存在授权引进/商业化合作案例；已在中、美、欧、日等核心区域获批上市；多个适应症处于临床 3 期阶段。</div>
-    </div>
-    <div class="check-item">
-      <div class="check-item-icon warn">★</div>
-      <div class="check-item-text"><strong>轨道二：机会性绿色通道 — 具备触发潜力</strong><br>全球首个获批 KRAS G12C 抑制剂，具有机制首创性与数据颠覆性，临床数据显著优于传统治疗方案，可纳入绿色通道重点跟进评估。</div>
-    </div>
-  </div>
-
 </section>
 
-<!-- ===== 二、关键证据链 ===== -->
-
+<!-- ===== 二、轨道一 — 硬指标审查 ===== -->
 <section class="section" id="s2">
-
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">关键证据链：适应症、交易与审批</h2>
+    <h2 class="section-title">轨道一 — 标准化硬指标审查</h2>
+  </div>
+  <p style="margin-bottom:20px;">逐项审查项目是否符合轨道一硬指标标准，标注 <span class="badge badge-pass">✓ 通过</span> 或具体要求。</p>
+
+  <div class="criteria-row">
+    <div class="criteria-pass" style="background:var(--green-light);color:var(--green);">✓</div>
+    <div class="criteria-body">
+      <div class="criteria-title">治疗领域（TA）<span class="badge badge-pass" style="margin-left:8px;">通过</span></div>
+      <div class="criteria-source"><span class="source-tag">【概要】模块</span> 治疗领域</div>
+      <div class="criteria-detail">核心 TA 覆盖：<span class="ta-highlight">非小细胞肺癌</span>（实体瘤·消化道肿瘤）、<span class="ta-highlight">结直肠癌</span>（实体瘤），位于核心轨道范围内。当前报告聚焦实体瘤方向，后续可关注其他核心 TA 适配性。</div>
+    </div>
+  </div>
+
+  <div class="criteria-row">
+    <div class="criteria-pass" style="background:var(--green-light);color:var(--green);">✓</div>
+    <div class="criteria-body">
+      <div class="criteria-title">合作模式（Deal Type）<span class="badge badge-pass" style="margin-left:8px;">通过</span></div>
+      <div class="criteria-source"><span class="source-tag">【药物交易】模块</span> 明细表格全量字段</div>
+      <div class="criteria-detail">首选 License-in / Distribution：海南成美药业已通过 BeOne Medicines 引进中国商业化权益，验证该品种具备 License-in 落地路径。排除纯股权投资。</div>
+    </div>
+  </div>
+
+  <div class="criteria-row">
+    <div class="criteria-pass" style="background:var(--green-light);color:var(--green);">✓</div>
+    <div class="criteria-body">
+      <div class="criteria-title">地域权益（Geography）<span class="badge badge-pass" style="margin-left:8px;">通过</span></div>
+      <div class="criteria-source"><span class="source-tag">【药物交易】模块</span> 交易方 · 权益区域</div>
+      <div class="criteria-detail">核心区域全覆盖：中国（临床 3 期推进中）、亚太（含日本 PMDA 已获批）、欧盟（EMA 已获批）。区域权益明确，可支持区域分销或独家合作。</div>
+    </div>
+  </div>
+
+  <div class="criteria-row">
+    <div class="criteria-pass" style="background:var(--green-light);color:var(--green);">✓</div>
+    <div class="criteria-body">
+      <div class="criteria-title">研发阶段（R&D Stage）<span class="badge badge-pass" style="margin-left:8px;">通过</span></div>
+      <div class="criteria-source"><span class="source-tag">【概要】模块</span> 最高研发阶段、靶点 <span class="source-tag">【研发状态】模块</span> 明细表格</div>
+      <div class="criteria-detail">创新药，已有初步 POC（CodeBreaK 100 关键临床数据）：非小细胞肺癌 FDA 已上市（Phase 3→NDA→上市），结直肠癌已上市，多项适应症处于临床 3 期拓展，完全符合 Phase 2 后期至已上市的标准。</div>
+    </div>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title"><span class="icon">●</span>治疗领域与适应症信息</div>
-    <p><strong>核心治疗领域</strong>：肿瘤、消化系统疾病、呼吸系统疾病、神经系统疾病</p>
-    <p><strong>赛道竞争格局</strong>：全球首个获批的 KRAS G12C 抑制剂，同类靶点在研药物约 200 个，索托拉西布处于行业领先地位。</p>
+    <div class="subsection-title"><span class="icon">●</span>适应症全景表 <span class="source-tag" style="margin-left:8px;">【研发状态】模块</span></div>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>适应症</th>
-            <th>研发状态</th>
-            <th>地区</th>
-            <th>备注</th>
-          </tr>
-        </thead>
+        <thead><tr><th>适应症</th><th>研发状态</th><th>地区</th><th>备注</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="td-bold">KRAS G12C 突变非小细胞肺癌</td>
-            <td><span class="badge badge-approved">已上市</span></td>
-            <td>美国 / 欧盟</td>
-            <td>2021年首次获批</td>
-          </tr>
-          <tr>
-            <td class="td-bold">KRAS G12C 突变结直肠癌</td>
-            <td><span class="badge badge-approved">已上市</span></td>
-            <td>美国 / 日本</td>
-            <td>2025年获批</td>
-          </tr>
-          <tr>
-            <td class="td-bold">非小细胞肺癌</td>
-            <td><span class="badge badge-clinical">临床 3 期</span></td>
-            <td>美国 / 中国</td>
-            <td>拓展适应症</td>
-          </tr>
-          <tr>
-            <td class="td-bold">非鳞状非小细胞肺癌</td>
-            <td><span class="badge badge-clinical">临床 3 期</span></td>
-            <td>美国 / 中国</td>
-            <td>拓展适应症</td>
-          </tr>
-          <tr>
-            <td class="td-bold">转移性结直肠癌</td>
-            <td><span class="badge badge-clinical">临床 3 期</span></td>
-            <td>美国</td>
-            <td>拓展适应症</td>
-          </tr>
-          <tr>
-            <td class="td-bold">脑癌 / 晚期恶性实体瘤</td>
-            <td><span class="badge badge-clinical">在研</span></td>
-            <td>—</td>
-            <td>拓展适应症探索</td>
-          </tr>
+          <tr><td class="td-bold">KRAS G12C 突变非小细胞肺癌</td><td><span class="badge badge-approved">已上市</span></td><td>美国 / 欧盟</td><td>2021年首次获批</td></tr>
+          <tr><td class="td-bold">KRAS G12C 突变结直肠癌</td><td><span class="badge badge-approved">已上市</span></td><td>美国 / 日本</td><td>2025年获批</td></tr>
+          <tr><td class="td-bold">非小细胞肺癌（拓展）</td><td><span class="badge badge-clinical">临床 3 期</span></td><td>美国 / 中国</td><td>拓展适应症</td></tr>
+          <tr><td class="td-bold">非鳞状非小细胞肺癌</td><td><span class="badge badge-clinical">临床 3 期</span></td><td>美国 / 中国</td><td>拓展适应症</td></tr>
+          <tr><td class="td-bold">转移性结直肠癌</td><td><span class="badge badge-clinical">临床 3 期</span></td><td>美国</td><td>拓展适应症</td></tr>
+          <tr><td class="td-bold">脑癌 / 晚期恶性实体瘤</td><td><span class="badge badge-clinical">在研</span></td><td>—</td><td>拓展适应症探索</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title"><span class="icon">●</span>合作模式与交易信息</div>
-    <p>索托拉西布展现出多元化的开放合作模式，包括授权引进、商业化合作与临床联合开发。</p>
+    <div class="subsection-title"><span class="icon">●</span>合作交易全景 <span class="source-tag" style="margin-left:8px;">【药物交易】模块</span></div>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>交易时间</th>
-            <th>转让方</th>
-            <th>受让方</th>
-            <th>合作内容</th>
-            <th>研发状态</th>
-          </tr>
-        </thead>
+        <thead><tr><th>交易时间</th><th>转让方</th><th>受让方</th><th>合作内容</th><th>类型</th></tr></thead>
         <tbody>
-          <tr>
-            <td>2022-01-13</td>
-            <td>BridgeBio Pharma</td>
-            <td>Amgen</td>
-            <td>临床合作，联合 BBP-398 治疗实体瘤</td>
-            <td><span class="badge badge-clinical">索托拉西布已上市</span></td>
-          </tr>
-          <tr>
-            <td>2021-09-20</td>
-            <td>Verastem</td>
-            <td>Amgen</td>
-            <td>临床合作，联合 VS-6766 治疗 NSCLC</td>
-            <td><span class="badge badge-clinical">索托拉西布已上市</span></td>
-          </tr>
-          <tr>
-            <td>2021-09-16</td>
-            <td>Boehringer Ingelheim</td>
-            <td>Amgen</td>
-            <td>临床合作，联合 BI 1701963 治疗实体瘤</td>
-            <td><span class="badge badge-clinical">索托拉西布已上市</span></td>
-          </tr>
-          <tr>
-            <td>2021-08-19</td>
-            <td>BeOne Medicines Ltd.</td>
-            <td>海南成美药业</td>
-            <td>引进索托拉西布中国商业化权益</td>
-            <td><span class="badge badge-clinical">索托拉西布已上市</span></td>
-          </tr>
+          <tr><td>2022-01-13</td><td>BridgeBio Pharma</td><td>Amgen</td><td>联合 BBP-398 治疗实体瘤</td><td><span class="badge badge-clinical">临床合作</span></td></tr>
+          <tr><td>2021-09-20</td><td>Verastem</td><td>Amgen</td><td>联合 VS-6766 治疗 NSCLC</td><td><span class="badge badge-clinical">临床合作</span></td></tr>
+          <tr><td>2021-09-16</td><td>Boehringer Ingelheim</td><td>Amgen</td><td>联合 BI 1701963 治疗实体瘤</td><td><span class="badge badge-clinical">临床合作</span></td></tr>
+          <tr><td>2021-08-19</td><td>BeOne Medicines Ltd.</td><td>海南成美药业</td><td>引进索托拉西布中国商业化权益</td><td><span class="badge badge-approved">License-in</span></td></tr>
         </tbody>
       </table>
     </div>
-    <div class="source-block">来源: Cortellis 数据库; 各公司公开披露; 海南成美药业公告.</div>
-    <p><strong>权益转让情况</strong>：存在 MAH/销售权益区域授权案例，可支持中国境内商业化合作。</p>
+    <p style="font-size:12px;color:var(--ink-4);">注：存在 MAH/销售权益区域授权案例，可支持中国境内商业化合作。</p>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title"><span class="icon">●</span>地域权益与获批情况</div>
-    <p><strong>核心获批区域</strong>：美国（FDA）、欧盟（EMA）、日本（PMDA）已获批上市；中国（临床阶段）正在推进。</p>
+    <div class="subsection-title"><span class="icon">●</span>获批与地域权益 <span class="source-tag" style="margin-left:8px;">【批准】模块</span></div>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>监管机构</th>
-            <th>获批日期</th>
-            <th>剂型</th>
-            <th>给药途径</th>
-            <th>规格</th>
-            <th>市场状态</th>
-          </tr>
-        </thead>
+        <thead><tr><th>监管机构</th><th>获批日期</th><th>剂型</th><th>给药途径</th><th>规格</th><th>市场状态</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="td-bold">FDA（美国）</td>
-            <td>2021-05-28</td>
-            <td>片剂</td>
-            <td>口服</td>
-            <td>120MG / 240MG / 320MG</td>
-            <td><span class="badge badge-approved">已上市</span></td>
-          </tr>
-          <tr>
-            <td class="td-bold">EMA（欧盟）</td>
-            <td>2022-01-06</td>
-            <td>片剂</td>
-            <td>口服</td>
-            <td>120MG</td>
-            <td><span class="badge badge-approved">已上市</span></td>
-          </tr>
-          <tr>
-            <td class="td-bold">PMDA（日本）</td>
-            <td>2025-09-19</td>
-            <td>片剂</td>
-            <td>口服</td>
-            <td>120MG</td>
-            <td><span class="badge badge-approved">已上市</span></td>
-          </tr>
-          <tr>
-            <td class="td-bold">NMPA（中国）</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td><span class="badge badge-clinical">临床 3 期</span></td>
-          </tr>
+          <tr><td class="td-bold">FDA（美国）</td><td>2021-05-28</td><td>片剂</td><td>口服</td><td>120MG / 240MG / 320MG</td><td><span class="badge badge-approved">已上市</span></td></tr>
+          <tr><td class="td-bold">EMA（欧盟）</td><td>2022-01-06</td><td>片剂</td><td>口服</td><td>120MG</td><td><span class="badge badge-approved">已上市</span></td></tr>
+          <tr><td class="td-bold">PMDA（日本）</td><td>2025-09-19</td><td>片剂</td><td>口服</td><td>120MG</td><td><span class="badge badge-approved">已上市</span></td></tr>
+          <tr><td class="td-bold">NMPA（中国）</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-clinical">临床 3 期</span></td></tr>
         </tbody>
       </table>
     </div>
-    <div class="source-block">来源: FDA ORANGE BOOK; EMA EPAR; PMDA 審査報告書.</div>
-    <p><strong>权益覆盖范围</strong>：已覆盖中国、亚太、欧洲核心市场，可支持区域分销/独家合作。</p>
+    <p style="font-size:12px;color:var(--ink-4);">权益覆盖范围：已覆盖中国、亚太、欧洲核心市场，可支持区域分销/独家合作。</p>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title"><span class="icon">●</span>研发阶段与关键里程碑</div>
-    <p><strong>最高研发状态</strong>：已上市（多个适应症）</p>
+    <div class="subsection-title"><span class="icon">●</span>研发里程碑 <span class="source-tag" style="margin-left:8px;">【概要】模块 — 最高研发阶段</span></div>
     <div class="timeline">
-      <div class="timeline-item highlight">
-        <div class="timeline-date">2021-05-28</div>
-        <div class="timeline-text">获 FDA 批准上市，用于 KRAS G12C 突变非小细胞肺癌——全球首个 KRAS 抑制剂里程碑</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2022-01-06</div>
-        <div class="timeline-text">获 EMA 批准上市，覆盖欧盟核心市场</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2023-11-16</div>
-        <div class="timeline-text">中国非小细胞肺癌适应症进入临床 3 期</div>
-      </div>
-      <div class="timeline-item highlight">
-        <div class="timeline-date">2025-01-16</div>
-        <div class="timeline-text">美国结直肠癌适应症获批上市，拓展第二个适应症</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2025-09-19</div>
-        <div class="timeline-text">日本结直肠癌适应症获批上市</div>
-      </div>
+      <div class="timeline-item highlight"><div class="timeline-date">2021-05-28</div><div class="timeline-text">获 FDA 批准上市，用于 KRAS G12C 突变非小细胞肺癌——全球首个 KRAS 抑制剂里程碑</div></div>
+      <div class="timeline-item"><div class="timeline-date">2022-01-06</div><div class="timeline-text">获 EMA 批准上市，覆盖欧盟核心市场</div></div>
+      <div class="timeline-item"><div class="timeline-date">2023-11-16</div><div class="timeline-text">中国非小细胞肺癌适应症进入临床 3 期</div></div>
+      <div class="timeline-item highlight"><div class="timeline-date">2025-01-16</div><div class="timeline-text">美国结直肠癌适应症获批上市，拓展第二个适应症</div></div>
+      <div class="timeline-item"><div class="timeline-date">2025-09-19</div><div class="timeline-text">日本结直肠癌适应症获批上市</div></div>
     </div>
   </div>
-
 </section>
 
-<!-- ===== 三、轨道二评估 ===== -->
-
+<!-- ===== 三、轨道二 — 绿色通道评估 ===== -->
 <section class="section" id="s3">
-
   <div class="section-header">
     <span class="section-num">03</span>
-    <h2 class="section-title">创新亮点与绿色通道潜力</h2>
+    <h2 class="section-title">轨道二 — 绿色通道评估</h2>
   </div>
+  <p style="margin-bottom:20px;">针对不完全符合部分硬指标但临床数据极其优异、机制具有颠覆性的产品，逐项评估三项核心维度。</p>
 
   <div class="assess-grid">
     <div class="assess-card">
-      <div class="assess-card-title"><span style="color:var(--gold);">✦</span> 数据颠覆性分析</div>
+      <div class="assess-card-title"><span style="color:var(--gold);">✦</span> 数据颠覆性</div>
+      <div class="criteria-source" style="margin-bottom:8px;"><span class="source-tag">【临床结果】模块</span> 明细表格全量字段</div>
       <ul>
         <li>针对 KRAS G12C 突变 NSCLC，ORR 显著高于传统治疗方案，PFS 延长超 6 个月</li>
-        <li>在无有效治疗方案的晚期实体瘤中展现出明确的疗效信号</li>
+        <li>在无有效治疗方案的晚期实体瘤中展现明确的疗效信号</li>
         <li>2026年ELCC大会数据：二/三线单药治疗显著改善预后，疗效优于现有标准治疗（SoC）</li>
       </ul>
     </div>
     <div class="assess-card">
-      <div class="assess-card-title"><span style="color:var(--teal);">◆</span> 机制首创性评估</div>
+      <div class="assess-card-title"><span style="color:var(--teal);">◆</span> 机制首创性</div>
+      <div class="criteria-source" style="margin-bottom:8px;"><span class="source-tag">【概要】模块 — 靶点-关联药物数量</span></div>
       <ul>
-        <li>全球首个获批 KRAS G12C 抑制剂，攻克"不可成药"的行业难题</li>
-        <li>KRAS G12C 靶点全球约 200 个在研药物，索托拉西布为首个上市</li>
+        <li>全球首个获批 KRAS G12C 抑制剂，攻克"不可成药"行业难题</li>
+        <li>靶点关联在研药物约 200 个，索托拉西布为首个上市（< 5 同类上市竞品）</li>
         <li>为联合用药、实体瘤拓展提供广阔空间，已开展多项联合临床研究</li>
       </ul>
     </div>
     <div class="assess-card">
-      <div class="assess-card-title"><span style="color:var(--purple);">▲</span> 商业稀缺性与技术壁垒</div>
+      <div class="assess-card-title"><span style="color:var(--purple);">▲</span> 商业稀缺性</div>
+      <div class="criteria-source" style="margin-bottom:8px;"><span class="source-tag">【批准】模块 — 剂型（去重）</span></div>
       <ul>
         <li>上市初期无直接竞品，市场独占性极高</li>
         <li>口服片剂剂型，给药便捷，生物利用度高，制剂工艺成熟</li>
@@ -875,9 +460,10 @@
     </div>
     <div class="assess-card">
       <div class="assess-card-title"><span style="color:var(--green);">●</span> First-in-Class 优势</div>
+      <div class="criteria-source" style="margin-bottom:8px;"><span class="source-tag">【概要】【批准】模块</span> 综合评估</div>
       <ul>
         <li>作为 First-in-Class 药物，享有显著的临床价值与定价空间</li>
-        <li>后续同类药物上市可能带来竞争，但先发优势显著</li>
+        <li>后续同类药物（如 Adagrasib）上市可能带来竞争，但先发优势显著</li>
         <li>建议优先锁定中国市场权益，抢占窗口期</li>
       </ul>
     </div>
@@ -886,27 +472,37 @@
   <div class="highlight-box">
     <div class="highlight-box-title">★ 核心临床数据亮点</div>
     <p>针对 KRAS G12C 突变非小细胞肺癌，ORR 显著高于传统治疗方案，PFS 延长超 6 个月，安全性表现优异。在无有效治疗方案的 KRAS G12C 突变晚期实体瘤中，展现出明确的疗效信号。2026 年 ELCC 大会公布的二线/三线治疗数据显示，索托拉西布单药治疗可显著改善患者预后，疗效优于现有标准治疗（SoC）。</p>
+    <div style="font-size:11px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;margin-top:8px;">数据来源：<span class="source-tag">【临床结果】模块</span> 明细表格全量字段</div>
   </div>
-
 </section>
 
-<!-- ===== 四、综合结论 ===== -->
-
+<!-- ===== 四、BD 研判与行动建议 ===== -->
 <section class="section" id="s4">
-
   <div class="section-header">
     <span class="section-num">04</span>
-    <h2 class="section-title">研判结论与行动建议</h2>
+    <h2 class="section-title">BD 研判与行动建议</h2>
   </div>
 
   <div class="conclusion-box">
     <div class="stars">★★★★★</div>
-    <div class="conclusion-box-title">项目评估结论</div>
-    <p style="color:rgba(255,255,255,0.85); font-size:14px; margin-bottom:4px;">索托拉西布完全符合轨道一标准化快速筛选标准，同时具备轨道二"机会性绿色通道"的核心特征，是 KRAS G12C 突变实体瘤领域的 <strong style="color:var(--gold);">First-in-Class 标杆产品</strong>，具有极高的临床价值与商业化潜力。</p>
+    <div class="conclusion-box-title">综合评估结论</div>
+    <p style="color:rgba(255,255,255,0.85);font-size:14px;">
+      索托拉西布<strong style="color:var(--gold);">完全符合轨道一全部硬指标</strong>（治疗领域、合作模式、地域权益、研发阶段均通过审查），
+      同时<strong style="color:var(--gold);">触发轨道二绿色通道</strong>的全部特征（数据颠覆性、机制首创性、商业稀缺性），
+      综合评级 <strong style="color:var(--gold);">★★★★★ 重点跟进</strong>。
+    </p>
     <div class="conclusion-grid">
       <div class="conclusion-item">
         <div class="conclusion-item-title">优先级</div>
         <div class="conclusion-item-value" style="color:var(--gold);">⭐⭐⭐⭐⭐ 重点跟进</div>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-item-title">推荐轨道</div>
+        <div class="conclusion-item-value">轨道一 + 轨道二 双轨推进</div>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-item-title">推荐合作模式</div>
+        <div class="conclusion-item-value">License-in（中国权益） / Distribution</div>
       </div>
       <div class="conclusion-item">
         <div class="conclusion-item-title">风险提示</div>
@@ -916,38 +512,52 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title"><span class="icon">◆</span>建议合作方向</div>
-    <div class="coop-grid">
-      <div style="background:var(--bg-card); border:1px solid var(--rule); border-radius:8px; padding:18px;">
-        <div style="font-size:28px; margin-bottom:6px;">🤝</div>
-        <div style="font-size:13px; font-weight:700; color:var(--teal); margin-bottom:4px;">License-in</div>
-        <div style="font-size:12px; color:var(--ink-3); line-height:1.5;">中国境内商业化权益引进，抢占百亿级市场</div>
+    <div class="subsection-title"><span class="icon">◆</span>建议行动方向</div>
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-icon">🤝</div>
+        <div class="action-title">License-in 中国权益</div>
+        <div class="action-desc">优先推进索托拉西布中国境内商业化权益引进，抢占百亿级 KRAS G12C 靶向治疗市场</div>
       </div>
-      <div style="background:var(--bg-card); border:1px solid var(--rule); border-radius:8px; padding:18px;">
-        <div style="font-size:28px; margin-bottom:6px;">🔬</div>
-        <div style="font-size:13px; font-weight:700; color:var(--teal); margin-bottom:4px;">联合用药开发</div>
-        <div style="font-size:12px; color:var(--ink-3); line-height:1.5;">与全球药企开展临床联合开发合作</div>
+      <div class="action-card">
+        <div class="action-icon">🔬</div>
+        <div class="action-title">联合用药开发</div>
+        <div class="action-desc">基于现有临床合作先例（BridgeBio、Verastem、BI），探索与自研管线联合用药的临床开发机会</div>
       </div>
-      <div style="background:var(--bg-card); border:1px solid var(--rule); border-radius:8px; padding:18px;">
-        <div style="font-size:28px; margin-bottom:6px;">🌏</div>
-        <div style="font-size:13px; font-weight:700; color:var(--teal); margin-bottom:4px;">区域分销合作</div>
-        <div style="font-size:12px; color:var(--ink-3); line-height:1.5;">亚太及新兴市场商业化合作</div>
+      <div class="action-card">
+        <div class="action-icon">🌏</div>
+        <div class="action-title">亚太区域分销</div>
+        <div class="action-desc">借力日本 PMDA 已获批优势，拓展亚太及新兴市场商业化合作网络</div>
       </div>
     </div>
   </div>
 
+  <div class="subsection">
+    <div class="subsection-title"><span class="icon">●</span>数据来源索引</div>
+    <p style="font-size:13px;">本报告各维度数据来源映射关系如下：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>评估维度</th><th>数据模块</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>治疗领域（TA）</td><td><span class="source-tag source-tag-primary">【概要】模块</span></td><td>治疗领域字段</td></tr>
+          <tr><td>合作模式 &amp; 地域权益</td><td><span class="source-tag source-tag-primary">【药物交易】模块</span></td><td>明细表格全量字段（交易方、金额、权益区域、时间）</td></tr>
+          <tr><td>研发阶段 &amp; 靶点</td><td><span class="source-tag source-tag-primary">【概要】+【研发状态】模块</span></td><td>最高研发阶段、靶点、适应症明细</td></tr>
+          <tr><td>临床结果</td><td><span class="source-tag source-tag-primary">【临床结果】模块</span></td><td>明细表格全量字段</td></tr>
+          <tr><td>机制首创性</td><td><span class="source-tag source-tag-primary">【概要】模块 — 靶点-关联药物数量</span></td><td>靶点关联药品数量</td></tr>
+          <tr><td>商业稀缺性（剂型）</td><td><span class="source-tag source-tag-primary">【批准】模块 — 剂型（去重）</span></td><td>获批剂型及给药形式</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
 
 </div>
 
 <!-- FOOTER -->
-
 <div class="footer">
-
-  <strong>索托拉西布（Sotorasib/LUMAKRAS）项目检索报告</strong><br>
-  报告生成：2026年05月28日  ·  任务ID：DR-20260528-001<br>
-  数据来源：药品商业数据库公开信息  ·  仅供内部参考
-
+  <strong>索托拉西布（Sotorasib/LUMAKRAS）BD 项目评估报告</strong><br>
+  报告生成：2026年05月28日 &nbsp;·&nbsp; 任务ID：DR-20260528-001<br>
+  采用双轨筛选框架 · 数据来源：药品商业数据库公开信息 &nbsp;·&nbsp; 仅供内部参考
 </div>
 
   </div>
@@ -973,5 +583,4 @@
 </script>
 
 </body>
-
 </html>
