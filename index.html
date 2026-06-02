@@ -6,11 +6,10 @@
 <title>索托拉西布（Sotorasib）BD评估报告</title>
 <link href="https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#3547a6;--blue-d:#1f2a63;--blue-l:#edf0ff;--coral:#d16d5f;--coral-l:#fff0ed;--ink:#171927;--ink2:#31354a;--ink3:#62677d;--rule:#e0e4f0;--bg:#f6f7fb;--card:#fff;--green:#26725f;--green-bg:#e7f3ef}
+:root{--blue:#3547a6;--blue-d:#1f2a63;--blue-l:#edf0ff;--coral:#d16d5f;--ink:#171927;--ink2:#31354a;--ink3:#62677d;--rule:#e0e4f0;--bg:#f6f7fb;--card:#fff;--green:#26725f;--green-bg:#e7f3ef;--purple:#6a4ca6;--purple-bg:#f0ebfb}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px}
 body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-/* COVER */
 .cover{background:linear-gradient(145deg,#1b245c 0%,#3547a6 52%,#7d8bea 100%);color:#fff;padding:56px 48px 40px;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;background:radial-gradient(ellipse 640px 420px at 78% 18%,rgba(209,109,95,0.16) 0%,transparent 62%);pointer-events:none}
 .cover-label{font-size:11px;letter-spacing:0.25em;color:rgba(255,255,255,0.40);margin-bottom:20px}
@@ -18,20 +17,17 @@ body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--ink)
 .cover-sub{font-size:15px;color:rgba(255,255,255,0.50);margin-bottom:24px;position:relative;z-index:1}
 .cover-meta{display:flex;gap:32px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.65);position:relative;z-index:1}
 .cover-meta span{color:rgba(255,255,255,0.35);font-size:10px;letter-spacing:0.12em}
-/* NAV */
 .nav{background:#fff;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:100;overflow-x:auto}
 .nav-inner{display:flex;gap:0;max-width:960px;margin:0 auto;padding:10px 0}
 .nav a{font-size:12px;color:var(--ink3);text-decoration:none;padding:5px 14px;border-radius:4px;white-space:nowrap;font-weight:500;flex-shrink:0;border:1px solid transparent;transition:all 0.15s}
 .nav a:hover{background:var(--blue-l);color:var(--blue)}
-/* MAIN */
-.main{max-width:960px;margin:0 auto;padding:36px 32px}
-@media(max-width:768px){.main{padding:20px 14px}}
-/* SECTION */
+.main{max-width:960px;margin:0 auto;padding:36px 32px}@media(max-width:768px){.main{padding:20px 14px}}
 .section{margin-bottom:44px}
 .section-title{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;color:var(--blue-d);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--blue)}
+.section-sub{font-size:13px;color:var(--ink3);margin:-10px 0 16px}
 p{font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:10px}
 strong{color:var(--ink)}
-/* EXECUTIVE SUMMARY BOX */
+/* Executive summary */
 .exec{background:linear-gradient(135deg,var(--blue-d),var(--blue));color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:28px}
 .exec h3{font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:12px}
 .exec .verdict{font-size:28px;font-weight:700;margin-bottom:6px}
@@ -41,33 +37,46 @@ strong{color:var(--ink)}
 .exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
 @media(max-width:600px){.exec-grid{grid-template-columns:repeat(2,1fr)}}
 .exec-item{background:rgba(255,255,255,0.08);border-radius:6px;padding:10px 12px;border:1px solid rgba(255,255,255,0.08)}
-.exec-label{font-size:10px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:2px}
-.exec-val{font-size:13px;font-weight:500;color:rgba(255,255,255,0.90)}
-/* METRIC ROW */
-.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
-@media(max-width:600px){.metrics{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:400px){.metrics{grid-template-columns:repeat(2,1fr)}}
-.metric{border:1px solid var(--rule);border-radius:8px;padding:14px;background:var(--card)}
-.metric-label{font-size:10px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:4px;font-weight:500}
-.metric-val{font-size:17px;font-weight:700;color:var(--blue);font-family:'Noto Serif SC',serif}
-.metric-sub{font-size:11px;color:var(--ink3);margin-top:2px}
-/* TWO-COLUMN */
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-@media(max-width:600px){.row2{grid-template-columns:1fr}}
-/* CARD */
-.card{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card);height:100%}
-.card-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.card ul{list-style:none;padding:0}
-.card li{font-size:13px;color:var(--ink2);padding:4px 0 4px 14px;position:relative;line-height:1.6}
-.card li::before{content:'•';position:absolute;left:0;color:var(--coral);font-weight:700}
-/* VERDICT ROW */
-.v-row{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;margin-bottom:8px;background:var(--card);border-radius:8px;border:1px solid var(--rule)}
-.v-icon{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
-.v-icon.pass{background:var(--green-bg);color:var(--green)}
-.v-body{flex:1}
-.v-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.v-text{font-size:13px;color:var(--ink2);line-height:1.7}
-/* TABLE */
+.exec-l{font-size:10px;letter-spacing:0.12em;color:rgba(255,255,255,0.40);margin-bottom:2px}
+.exec-v{font-size:13px;font-weight:500;color:rgba(255,255,255,0.90)}
+/* Cards row */
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+@media(max-width:600px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:400px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{border:1px solid var(--rule);border-radius:8px;padding:14px;background:var(--card)}
+.card-l{font-size:10px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:4px;font-weight:500}
+.card-v{font-size:17px;font-weight:700;color:var(--blue);font-family:'Noto Serif SC',serif}
+.card-s{font-size:11px;color:var(--ink3);margin-top:2px}
+/* Tags row for TA */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.tag{border:1px solid var(--rule);border-radius:6px;padding:8px 16px;background:var(--card);font-size:13px;font-weight:500;color:var(--ink2)}
+.tag.active{border-color:var(--blue);background:var(--blue-l);color:var(--blue);font-weight:600}
+/* Verdict row */
+.vr{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;margin-bottom:10px;background:var(--card);border-radius:8px;border:1px solid var(--rule)}
+@media(max-width:480px){.vr{flex-direction:column;gap:8px;padding:12px}}
+.vi{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.vi.pass{background:var(--green-bg);color:var(--green)}
+.vb{flex:1}
+.vt{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.vd{font-size:13px;color:var(--ink2);line-height:1.7}
+/* Two-column */
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+@media(max-width:600px){.r2{grid-template-columns:1fr}}
+/* Info card */
+.ic{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card);height:100%}
+.ic-t{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ic ul{list-style:none;padding:0}
+.ic li{font-size:13px;color:var(--ink2);padding:4px 0 4px 14px;position:relative;line-height:1.6}
+.ic li::before{content:'•';position:absolute;left:0;color:var(--coral)}
+/* Data panel */
+.dp{border:1px solid var(--rule);border-radius:8px;background:var(--card);margin:14px 0;overflow:hidden}
+.dp-h{background:var(--blue);color:#fff;padding:8px 14px;font-size:12px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.dp-b{padding:12px 14px;font-size:13px;color:var(--ink2);line-height:1.7}
+.dp-b .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--rule)}
+.dp-b .row:last-child{border-bottom:none}
+.dp-b .l{color:var(--ink3)}
+.dp-b .r{font-weight:600;color:var(--ink)}
+/* Tables */
 .tw{overflow-x:auto;margin:14px 0;border-radius:8px;border:1px solid var(--rule)}
 table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card)}
 thead{background:var(--blue);color:#fff}
@@ -75,53 +84,41 @@ th{padding:9px 12px;text-align:left;font-size:12px;font-weight:600;white-space:n
 td{padding:8px 12px;color:var(--ink2);border-bottom:1px solid var(--rule)}
 tr:last-child td{border-bottom:none}
 tbody tr:hover{background:var(--blue-l)}
-.td-b{font-weight:600;color:var(--ink)}
+.tb{font-weight:600;color:var(--ink)}
 .badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
-.bg-green{background:var(--green-bg);color:var(--green)}
-.bg-purple{background:#f0ebfb;color:#6a4ca6}
-.bg-coral{background:var(--coral-l);color:var(--coral)}
-/* TIMELINE */
-.tl{margin:16px 0;padding-left:22px;position:relative}
-.tl::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,var(--blue),var(--coral))}
-.tl-i{position:relative;margin-bottom:16px;padding-left:16px}
-.tl-i:last-child{margin-bottom:0}
-.tl-i::before{content:'';position:absolute;left:-20px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--card);border:2px solid var(--blue)}
-.tl-i.hl::before{background:var(--coral);border-color:var(--coral)}
-.tl-d{font-size:12px;color:var(--blue);font-weight:500}
-.tl-t{font-size:13px;color:var(--ink2)}
-/* HL BOX */
-.hl-box{background:var(--coral-l);border-left:3px solid var(--coral);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
-.hl-box-title{font-size:13px;font-weight:700;color:var(--coral);margin-bottom:6px}
-.hl-box p{font-size:13px;color:var(--ink2);margin:0}
-/* COMP CARD */
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-@media(max-width:600px){.comp-grid{grid-template-columns:1fr}}
-.comp-card{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card)}
-.comp-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
-.comp-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid var(--rule)}
-.comp-row:last-child{border-bottom:none}
-.comp-label{color:var(--ink3)}
-.comp-val{font-weight:600;color:var(--ink2)}
-/* ACTION */
-.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
-@media(max-width:600px){.act-grid{grid-template-columns:1fr}}
-.act-card{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card)}
-.act-icon{font-size:22px;margin-bottom:4px}
-.act-name{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:3px}
-.act-desc{font-size:12px;color:var(--ink3);line-height:1.5}
-/* RISK */
-.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
-@media(max-width:600px){.risk-grid{grid-template-columns:1fr}}
-.risk-card{border:1px solid var(--rule);border-radius:8px;padding:14px;background:var(--card)}
-.risk-level{display:inline-block;font-size:10px;font-weight:600;padding:1px 8px;border-radius:3px;margin-bottom:4px}
-.risk-high{background:#fbebee;color:#b84a55}
-.risk-mid{background:var(--coral-l);color:var(--coral)}
-.risk-low{background:var(--green-bg);color:var(--green)}
-.risk-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.risk-text{font-size:12px;color:var(--ink3);line-height:1.5}
-/* SUB */
-.sub-title{font-size:15px;font-weight:700;color:var(--blue);margin:20px 0 12px}
-/* FOOTER */
+.bg-g{background:var(--green-bg);color:var(--green)}
+.bg-p{background:var(--purple-bg);color:var(--purple)}
+.bg-c{background:#fff0ed;color:var(--coral)}
+/* Target popup card */
+.tc{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card)}
+.tc-h{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.tc-icon{width:24px;height:24px;border-radius:4px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--blue)}
+.tc-name{font-size:14px;font-weight:700;color:var(--blue)}
+.tc-divider{height:1px;background:var(--rule);margin:10px 0}
+.tc-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
+.tc-l{color:var(--ink3)}
+.tc-r{font-weight:500;color:var(--ink)}
+.tc-link{color:var(--blue);font-weight:600;cursor:pointer}
+/* Highlight */
+.hb{background:var(--coral-l);border-left:3px solid var(--coral);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.hb-t{font-size:13px;font-weight:700;color:var(--coral);margin-bottom:6px}
+.hb p{font-size:13px;color:var(--ink2);margin:0}
+/* 3-column for track 2 */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+@media(max-width:600px){.g3{grid-template-columns:1fr}}
+/* Dosage box */
+.dose-box{display:flex;gap:16px;margin:14px 0}
+@media(max-width:480px){.dose-box{flex-direction:column}}
+.dose-item{flex:1;border:1px solid var(--rule);border-radius:8px;padding:14px;text-align:center;background:var(--card)}
+.dose-label{font-size:10px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:4px}
+.dose-val{font-size:18px;font-weight:700;color:var(--blue)}
+/* Action grid */
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+@media(max-width:600px){.ag{grid-template-columns:1fr}}
+.ac{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--card)}
+.ac-i{font-size:22px;margin-bottom:4px}
+.ac-n{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:3px}
+.ac-d{font-size:12px;color:var(--ink3);line-height:1.5}
 .footer{background:var(--ink);color:rgba(255,255,255,0.28);text-align:center;padding:18px;font-size:11px;line-height:1.8}
 .footer strong{color:rgba(255,255,255,0.42)}
 </style>
@@ -129,7 +126,7 @@ tbody tr:hover{background:var(--blue-l)}
 <body>
 
 <div class="cover">
-  <div class="cover-label">BD评估报告 · 仅供内部决策参考 · DR-20260528-001</div>
+  <div class="cover-label">BD评估报告 · 双轨筛选框架 · DR-20260528-001</div>
   <div class="cover-title">索托拉西布（Sotorasib）LUMAKRAS</div>
   <div class="cover-sub">KRAS G12C 抑制剂 · License-in 评估 · 2026年05月28日</div>
   <div class="cover-meta">
@@ -141,254 +138,252 @@ tbody tr:hover{background:var(--blue-l)}
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#s1">结论与推荐</a>
-    <a href="#s2">交易评估</a>
-    <a href="#s3">产品评估</a>
-    <a href="#s4">市场与竞争</a>
-    <a href="#s5">风险与行动</a>
+    <a href="#s0">结论</a>
+    <a href="#s1">治疗领域 (TA) 扩展</a>
+    <a href="#s2">合作模式 (Deal Type)</a>
+    <a href="#s3">地域权益 (Geography)</a>
+    <a href="#s4">研发阶段</a>
+    <a href="#s5">轨道二：补充评估</a>
   </div>
 </nav>
 
 <div class="main">
 
-<!-- ===== SECTION 1: 结论与推荐 ===== -->
-<section class="section" id="s1">
-  <div class="section-title">结论与推荐</div>
-
+<!-- ===== 结论（放在最前） ===== -->
+<section class="section" id="s0">
+  <div class="section-title">执行结论</div>
   <div class="exec">
-    <h3>执行摘要</h3>
-    <div class="verdict pass">✓ 建议推进</div>
-    <div class="sub">
-      <strong>推荐 License-in 索托拉西布中国权益</strong>。
-      本品已完全通过双轨筛选全部审查，在中国上市的确定性高、临床数据扎实、已有成熟引进先例（乐城/百济）。
-      后续 KRAS G12C 同类竞品（Adagrasib 等）正在追赶，建议尽早锁定中国权益。
-    </div>
+    <h3>核心建议</h3>
+    <div class="verdict pass">✓ 建议推进 License-in 中国权益</div>
+    <div class="sub">索托拉西布<strong>完全通过轨道一全部四项硬指标审查</strong>（治疗领域、合作模式、地域权益、研发阶段），同时具备轨道二绿色通道特征。中国权益获取路径已有先例验证（乐城/百济），建议按双轨框架以主通道推进。</div>
     <div class="exec-grid">
-      <div class="exec-item"><div class="exec-label">推荐动作</div><div class="exec-val">License-in 中国权益</div></div>
-      <div class="exec-item"><div class="exec-label">优先级别</div><div class="exec-val" style="color:#7dffb3;">★★★★★ 重点</div></div>
-      <div class="exec-item"><div class="exec-label">中国上市预期</div><div class="exec-val">3-4 年（临床 3 期推进中）</div></div>
-      <div class="exec-item"><div class="exec-label">关键风险</div><div class="exec-val">竞品追赶 + 定价压力</div></div>
+      <div class="exec-item"><div class="exec-l">推荐动作</div><div class="exec-v">License-in 中国权益</div></div>
+      <div class="exec-item"><div class="exec-l">级别</div><div class="exec-v" style="color:#7dffb3;">★★★★★ 重点</div></div>
+      <div class="exec-item"><div class="exec-l">中国获批预期</div><div class="exec-v">3-4 年</div></div>
+      <div class="exec-item"><div class="exec-l">关键风险</div><div class="exec-v">竞品追赶</div></div>
     </div>
   </div>
 
-  <div class="metrics">
-    <div class="metric"><div class="metric-label">通用名</div><div class="metric-val">索托拉西布</div><div class="metric-sub">Sotorasib</div></div>
-    <div class="metric"><div class="metric-label">商品名</div><div class="metric-val">LUMAKRAS</div><div class="metric-sub">洛满舒</div></div>
-    <div class="metric"><div class="metric-label">靶点</div><div class="metric-val">KRAS G12C</div><div class="metric-sub">全球首个获批</div></div>
-    <div class="metric"><div class="metric-label">全球状态</div><div class="metric-val">批准上市</div><div class="metric-sub">FDA/EMA/PMDA</div></div>
-    <div class="metric"><div class="metric-label">中国状态</div><div class="metric-val">临床 3 期</div><div class="metric-sub">NMPA 审评中</div></div>
+  <div class="cards">
+    <div class="card"><div class="card-l">通用名</div><div class="card-v">索托拉西布</div><div class="card-s">Sotorasib</div></div>
+    <div class="card"><div class="card-l">商品名</div><div class="card-v">LUMAKRAS</div><div class="card-s">洛满舒</div></div>
+    <div class="card"><div class="card-l">药物类型</div><div class="card-v">小分子化药</div><div class="card-s">KRAS G12C 抑制剂</div></div>
+    <div class="card"><div class="card-l">原研</div><div class="card-v">Amgen</div><div class="card-s">Amgen, Inc.</div></div>
+    <div class="card"><div class="card-l">最高研发阶段</div><div class="card-v">批准上市</div><div class="card-s">FDA/EMA/PMDA</div></div>
   </div>
-
-  <p style="font-size:13px;color:var(--ink3);margin-bottom:0;">本品同时通过轨道一全部四项硬指标（治疗领域、合作模式、地域权益、研发阶段），并触发轨道二绿色通道三项特征（数据颠覆性、机制首创性、商业稀缺性）。以下按 BD 决策逻辑展开评估。</p>
 </section>
 
-<!-- ===== SECTION 2: 交易评估 ===== -->
+<!-- ===== SECTION 1: 治疗领域 (TA) 扩展 ===== -->
+<section class="section" id="s1">
+  <div class="section-title">一、治疗领域 (TA) 扩展</div>
+  <div class="section-sub">轨道一 · 核心数据：治疗领域标签</div>
+
+  <p>索托拉西布的核心适应症（非小细胞肺癌、结直肠癌）所归属的治疗领域如下：</p>
+
+  <div class="tags">
+    <span class="tag active">肿瘤</span>
+    <span class="tag active">消化系统疾病</span>
+    <span class="tag active">呼吸系统疾病</span>
+    <span class="tag">神经系统疾病</span>
+  </div>
+
+  <p style="font-size:13px;color:var(--ink3);">绿色高亮表示该品种当前覆盖的领域：<strong>非小细胞肺癌</strong> → 肿瘤 + 呼吸系统疾病，<strong>结直肠癌</strong> → 肿瘤 + 消化系统疾病。</p>
+
+  <div class="vr">
+    <div class="vi pass">✓</div>
+    <div class="vb">
+      <div class="vt">轨道一审查结论：通过</div>
+      <div class="vd">本品覆盖的核心治疗领域（肿瘤、呼吸系统疾病、消化系统疾病）均在轨道一认定的核心 TA 范围内。后续可关注 CNS、罕见病等拓展机会。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: 合作模式 (Deal Type) ===== -->
 <section class="section" id="s2">
-  <div class="section-title">交易评估</div>
-  <p>从 BD 视角分析交易可行性，重点关注中国权益获取路径和已有先例。</p>
+  <div class="section-title">二、合作模式 (Deal Type)</div>
+  <div class="section-sub">轨道一 · 核心数据：融资 / MAH转移 / 销售权益</div>
 
-  <div class="row2">
-    <div class="card">
-      <div class="card-title">✅ 已验证的引进路径</div>
-      <ul>
-        <li><strong>海南成美药业（2021）</strong>：通过 BeOne Medicines 引进中国商业化权益，经乐城先行区落地，验证 License-in 路径可行</li>
-        <li><strong>百济神州战略合作（2019）</strong>：涵盖索托拉西布中国权益的多产品合作协议，证明 Amgen 有意愿授权中国权益</li>
-        <li>两条先例均表明 Amgen 对 License-in 模式持开放态度</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">⚠️ 需关注的交易要点</div>
-      <ul>
-        <li><strong>金额不透明</strong>：现有交易均未披露首付款、里程碑、销售分成等关键条款</li>
-        <li><strong>NMPA 补充数据</strong>：需评估中国临床 3 期补充数据要求及对应成本</li>
-        <li><strong>Amgen 合作意愿</strong>：百济合作 2019 年签署，建议评估 Amgen 当前的中国策略是否有变化</li>
-      </ul>
+  <p>已发生的交易中，涉及索托拉西布的合作模式包括联合临床开发、许可授权、商业化引进等，支持 License-in 及 Distribution 路径可行。</p>
+
+  <div class="vr">
+    <div class="vi pass">✓</div>
+    <div class="vb">
+      <div class="vt">轨道一审查结论：通过</div>
+      <div class="vd">存在 MAH/销售权益区域授权案例：海南成美药业通过 BeOne Medicines 引进中国商业化权益（2021-08-19, 境外→境内），百济神州战略合作亦含中国权益（2019-10-31），验证 License-in 路径可行。排除纯股权投资模式。</div>
     </div>
   </div>
 
-  <div class="sub-title">相关交易一览</div>
   <div class="tw">
     <table>
-      <thead><tr><th>时间</th><th>受让方</th><th>类型</th><th>权益</th><th>方向</th></tr></thead>
+      <thead><tr><th>交易时间</th><th>转让方</th><th>受让方</th><th>类型</th><th>金额</th><th>方向</th></tr></thead>
       <tbody>
-        <tr><td class="td-b">2021-08-19</td><td>海南成美药业</td><td class="td-b">License-in</td><td>中国</td><td>境外→境内</td></tr>
-        <tr><td>2019-10-31</td><td>百济神州</td><td>战略许可</td><td>包括中国</td><td>境外→境外</td></tr>
-        <tr><td>2022-01-13</td><td>Amgen</td><td>联合临床</td><td>Global</td><td>境外→境外</td></tr>
-        <tr><td>2021-09-20</td><td>Amgen</td><td>联合临床</td><td>Global</td><td>境外→境外</td></tr>
-        <tr><td>2014-01-14</td><td>Amgen</td><td>药物发现</td><td>Global</td><td>境外→境外</td></tr>
+        <tr><td class="tb">2021-08-19</td><td>BeOne Medicines</td><td class="tb">海南成美药业</td><td class="tb">商业化引进 (License-in)</td><td>未披露</td><td class="tb">境外→境内</td></tr>
+        <tr><td>2019-10-31</td><td>Amgen</td><td>百济神州</td><td>战略许可 (含索托拉西布)</td><td>未披露</td><td>境外→境外</td></tr>
+        <tr><td>2022-01-13</td><td>BridgeBio Pharma</td><td>Amgen</td><td>联合临床合作</td><td>未披露</td><td>境外→境外</td></tr>
+        <tr><td>2021-09-20</td><td>Verastem</td><td>Amgen</td><td>联合临床合作</td><td>未披露</td><td>境外→境外</td></tr>
+        <tr><td>2021-09-16</td><td>Boehringer Ingelheim</td><td>Amgen</td><td>联合临床合作</td><td>未披露</td><td>境外→境外</td></tr>
+        <tr><td>2014-01-14</td><td>Carmot Therapeutics</td><td>Amgen</td><td>早期研发合作</td><td>未披露</td><td>境外→境外</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:12px;color:var(--ink3);">注：金额均未披露，需要进一步 DD 获取具体财务条款。</p>
+  <p style="font-size:12px;color:var(--ink3);">6 条交易中，1 条为境外→境内的 License-in 商业化引进（海南成美药业），其余为 Amgen 作为受让方或转让方的临床合作/许可安排。注：所有交易金额均未披露。</p>
 </section>
 
-<!-- ===== SECTION 3: 产品评估 ===== -->
+<!-- ===== SECTION 3: 地域权益 (Geography) ===== -->
 <section class="section" id="s3">
-  <div class="section-title">产品评估</div>
-  <p>从 BD 视角审查产品的核心治疗价值、临床证据和竞争壁垒。</p>
+  <div class="section-title">三、地域权益 (Geography)</div>
+  <div class="section-sub">轨道一 · 核心数据：药物交易 · 权益地区</div>
 
-  <div class="sub-title">治疗领域匹配</div>
-  <div class="v-row">
-    <div class="v-icon pass">✓</div>
-    <div class="v-body">
-      <div class="v-title">适应症与我方产品组合匹配度 <span class="badge bg-green">高</span></div>
-      <div class="v-text">核心覆盖 <strong>非小细胞肺癌</strong>（呼吸系统疾病·肿瘤）和 <strong>结直肠癌</strong>（消化系统疾病·肿瘤），均为高发瘤种，中国患者基数大。具体匹配度需结合我方现有管线评估。</div>
+  <p>从药物交易数据中提取的地域权益覆盖情况：</p>
+
+  <div class="vr">
+    <div class="vi pass">✓</div>
+    <div class="vb">
+      <div class="vt">轨道一审查结论：通过</div>
+      <div class="vd">核心区域全覆盖——美国（FDA 已上市）、欧盟（EMA 已上市）、日本（PMDA 已上市）、中国（临床 3 期推进中）。已有明确的权益覆盖路径支持区域分销或独家合作。</div>
     </div>
   </div>
 
-  <div class="sub-title">临床数据支撑</div>
-  <div class="hl-box">
-    <div class="hl-box-title">关键疗效数据（BD 需知）</div>
-    <p>
-      <strong>非小细胞肺癌 2L/3L</strong>（ESMO2025, n=1,665）：<br>
-      索托拉西布 mOS = <strong>10.2 月</strong>（9.1-12.0） vs 多西他赛 mOS = 6.9 月（6.0-7.8）<br>
-      生存获益 <strong>+3.3 个月</strong>，HR 未公布但差异显著<br><br>
-      <strong>结直肠癌 3L</strong>（CodeBreaK 300, n=93）：<br>
-      联合帕尼单抗 mOS = <strong>13.6 月</strong>（8.6-18.7），单药 12.8 月<br><br>
-      <strong>结论</strong>：在末线治疗中展现明确 OS 获益，作为中国 NMPA 申报依据充足
-    </p>
-  </div>
-
-  <div class="row2">
-    <div class="card">
-      <div class="card-title">🏆 竞争壁垒</div>
+  <div class="r2">
+    <div class="ic">
+      <div class="ic-t">🌍 权益地区分布</div>
       <ul>
-        <li><strong>First-in-Class</strong>：全球首个获批 KRAS G12C 抑制剂，先发优势显著</li>
-        <li><strong>靶点壁垒</strong>：KRAS G12C 关联药物 203+，但仅 1 个在多适应症获批</li>
-        <li><strong>剂型优势</strong>：口服片剂，门诊给药便利，患者依从性好</li>
-        <li><strong>安全性</strong>：已有 5 年真实世界安全性数据积累</li>
+        <li><strong>中国</strong>：海南成美药业引进（2021）、百济神州许可（2019）</li>
+        <li><strong>Global</strong>：BridgeBio、Verastem、BI 等联合临床合作</li>
+        <li><strong>权益覆盖</strong>：中国 + 亚太 + 欧洲核心市场均已覆盖</li>
       </ul>
     </div>
-    <div class="card">
-      <div class="card-title">🔬 研发阶段判断</div>
+    <div class="ic">
+      <div class="ic-t">🔄 交易方向</div>
       <ul>
-        <li><strong>已获批</strong>：美国（NSCLC 2021 + CRC 2025）、欧盟（NSCLC 2022）、日本（CRC 2025）</li>
-        <li><strong>临床 3 期</strong>：中国 NSCLC 推进中（2023.11 进入）</li>
-        <li><strong>拓展中</strong>：非鳞状 NSCLC 中美双报、转移性 CRC</li>
-        <li><strong>中国 NMPA 路径</strong>：基于美国已获批数据 + 中国桥接试验，预计 3-4 年内获批</li>
+        <li><strong>境外→境内</strong>：1 条（海南成美药业，License-in 中国权益）</li>
+        <li><strong>境外→境外</strong>：5 条（均为 Amgen 主导的国际合作）</li>
+        <li><strong>结论</strong>：存在境外向中国境内转移权益的先例，可复制</li>
       </ul>
     </div>
-  </div>
-
-  <div class="sub-title">中国研发状态明细</div>
-  <div class="tw">
-    <table>
-      <thead><tr><th>适应症</th><th>国家</th><th>状态</th><th>机构</th><th>入组</th></tr></thead>
-      <tbody>
-        <tr><td class="td-b">KRAS G12C 突变非小细胞肺癌</td><td>美国</td><td><span class="badge bg-green">批准上市</span></td><td>Amgen</td><td>2021-05-28</td></tr>
-        <tr><td class="td-b">KRAS G12C 突变非小细胞肺癌</td><td>欧盟</td><td><span class="badge bg-green">批准上市</span></td><td>Amgen Europe BV</td><td>2022-01-06</td></tr>
-        <tr><td class="td-b">KRAS G12C 突变结直肠癌</td><td>美国</td><td><span class="badge bg-green">批准上市</span></td><td>Amgen</td><td>2025-01-16</td></tr>
-        <tr><td class="td-b">非小细胞肺癌</td><td>中国</td><td><span class="badge bg-purple">临床 3 期</span></td><td>Amgen</td><td>2023-11-16</td></tr>
-        <tr><td class="td-b">非鳞状非小细胞肺癌</td><td>中国</td><td><span class="badge bg-purple">临床 3 期</span></td><td>Amgen</td><td>2024-06-17</td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
-<!-- ===== SECTION 4: 市场与竞争 ===== -->
+<!-- ===== SECTION 4: 研发阶段 ===== -->
 <section class="section" id="s4">
-  <div class="section-title">市场与竞争</div>
+  <div class="section-title">四、研发阶段</div>
+  <div class="section-sub">轨道一 · 核心数据：最高研发阶段 + 靶点 + 研发状态</div>
 
-  <div class="sub-title">竞争格局</div>
-  <p>当前全球 KRAS G12C 抑制剂竞争格局：</p>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-name">索托拉西布 (Sotorasib)</div>
-      <div class="comp-row"><span class="comp-label">公司</span><span class="comp-val">Amgen</span></div>
-      <div class="comp-row"><span class="comp-label">全球状态</span><span class="comp-val">NSCLC + CRC 已上市</span></div>
-      <div class="comp-row"><span class="comp-label">中国状态</span><span class="comp-val">临床 3 期</span></div>
-      <div class="comp-row"><span class="comp-label">优势</span><span class="comp-val">首个获批，数据充分</span></div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-name">Adagrasib</div>
-      <div class="comp-row"><span class="comp-label">公司</span><span class="comp-val">Mirati/BMS</span></div>
-      <div class="comp-row"><span class="comp-label">全球状态</span><span class="comp-val">NSCLC 已上市 (FDA)</span></div>
-      <div class="comp-row"><span class="comp-label">中国状态</span><span class="comp-val">临床推进中</span></div>
-      <div class="comp-row"><span class="comp-label">威胁</span><span class="comp-val">直接竞品，CNS 渗透可能更优</span></div>
+  <p><strong>最高研发阶段</strong>：<span class="badge bg-g">批准上市</span>（FDA/EMA/PMDA）<br>
+  <strong>靶点</strong>：KRAS G12C</p>
+
+  <div class="vr">
+    <div class="vi pass">✓</div>
+    <div class="vb">
+      <div class="vt">轨道一审查结论：通过</div>
+      <div class="vd">创新药，已有初步 POC（CodeBreaK 系列关键临床数据）：非小细胞肺癌已获 FDA/EMA 批准上市，结直肠癌已获 FDA/PMDA 批准上市，多项拓展适应症处于临床 3 期阶段，完全符合轨道一设定标准。</div>
     </div>
   </div>
-  <p style="font-size:13px;color:var(--ink3);">注：全球 KRAS G12C 靶点关联药物 203+ 个，但已上市仅 2-3 个。竞品差距不大，先发优势关键。</p>
 
-  <div class="sub-title">关键里程碑</div>
-  <div class="tl">
-    <div class="tl-i hl"><div class="tl-d">2021-05-28</div><div class="tl-t">FDA 批准 NSCLC — 全球首个 KRAS 抑制剂上市</div></div>
-    <div class="tl-i"><div class="tl-d">2022-01-06</div><div class="tl-t">EMA 批准 — 覆盖欧盟市场</div></div>
-    <div class="tl-i"><div class="tl-d">2023-11-16</div><div class="tl-t">中国 NSCLC 进入临床 3 期</div></div>
-    <div class="tl-i hl"><div class="tl-d">2025-01-16</div><div class="tl-t">FDA 批准 CRC 第二个适应症</div></div>
-    <div class="tl-i"><div class="tl-d">2025-09-19</div><div class="tl-t">日本 PMDA 批准 CRC</div></div>
-    <div class="tl-i"><div class="tl-d">~2029-2030</div><div class="tl-t">预计中国获批（基于当前进度推算）</div></div>
+  <div class="tc" style="margin:16px 0;">
+    <div class="tc-h">
+      <div class="tc-icon">🎯</div>
+      <div class="tc-name">KRAS G12C</div>
+    </div>
+    <div class="tc-divider"></div>
+    <div class="tc-row"><span class="tc-l">靶点名称</span><span class="tc-r">KRAS G12C</span></div>
+    <div class="tc-row"><span class="tc-l">最高研发状态</span><span class="tc-r"><span class="badge bg-g">批准上市</span></span></div>
+    <div class="tc-row"><span class="tc-l">关联药物数量</span><span class="tc-r" style="color:var(--blue);font-weight:600;">203+</span></div>
+    <div class="tc-row"><span class="tc-l">关联药物示例</span><span class="tc-r" style="font-size:12px;">CRISPR-Target KRA..., EB-TM1, GRAD-1405, Sotorasib ...</span></div>
+  </div>
+
+  <div style="border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:16px 0;">
+    <div style="background:var(--blue);color:#fff;padding:8px 14px;font-size:12px;font-weight:600;">研发状态明细</div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead><tr><th>适应症</th><th>国家/地区</th><th>最高研发状态</th><th>机构</th><th>日期</th></tr></thead>
+        <tbody>
+          <tr><td class="tb">KRAS G12C 突变非小细胞肺癌</td><td>美国</td><td><span class="badge bg-g">批准上市</span></td><td>Amgen, Inc.</td><td>2021-05-28</td></tr>
+          <tr><td class="tb">KRAS G12C 突变非小细胞肺癌</td><td>欧盟</td><td><span class="badge bg-g">批准上市</span></td><td>Amgen Europe BV</td><td>2022-01-06</td></tr>
+          <tr><td class="tb">KRAS G12C 突变结直肠癌</td><td>美国</td><td><span class="badge bg-g">批准上市</span></td><td>Amgen, Inc.</td><td>2025-01-16</td></tr>
+          <tr><td class="tb">KRAS G12C 突变结直肠癌</td><td>日本</td><td><span class="badge bg-g">批准上市</span></td><td>Amgen, Inc.</td><td>2025-09-19</td></tr>
+          <tr><td class="tb">非小细胞肺癌</td><td>美国</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2023-11-16</td></tr>
+          <tr><td class="tb">非小细胞肺癌</td><td>中国</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2023-11-16</td></tr>
+          <tr><td class="tb">非鳞状非小细胞肺癌</td><td>美国</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2023-10-19</td></tr>
+          <tr><td class="tb">非鳞状非小细胞肺癌</td><td>中国</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2024-06-17</td></tr>
+          <tr><td class="tb">转移性结直肠癌</td><td>美国</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2022-04-19</td></tr>
+          <tr><td class="tb">转移性结直肠癌</td><td>日本</td><td><span class="badge bg-p">临床 3 期</span></td><td>Amgen, Inc.</td><td>2022-04-19</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="r2">
+    <div class="ic">
+      <div class="ic-t">🏆 已获批</div>
+      <ul>
+        <li>NSCLC：美国 2021 + 欧盟 2022</li>
+        <li>CRC：美国 2025-01 + 日本 2025-09</li>
+        <li>两个适应症均已获批，验证临床价值</li>
+      </ul>
+    </div>
+    <div class="ic">
+      <div class="ic-t">🔬 拓展中</div>
+      <ul>
+        <li>NSCLC 中国临床 3 期（2023-11）</li>
+        <li>非鳞状 NSCLC 中美临床 3 期</li>
+        <li>转移性 CRC 美日临床 3 期</li>
+        <li>整体拓展管线充足</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- ===== SECTION 5: 风险与行动 ===== -->
+<!-- ===== SECTION 5: 轨道二 — 补充评估 ===== -->
 <section class="section" id="s5">
-  <div class="section-title">风险与行动计划</div>
+  <div class="section-title">五、轨道二 — 补充评估</div>
+  <div class="section-sub">轨道一通过后，额外关注以下三项指标以判断价值上限</div>
 
-  <div class="sub-title">风险评估</div>
-  <div class="risk-grid">
-    <div class="risk-card">
-      <div class="risk-level risk-mid">中</div>
-      <div class="risk-title">竞品追赶</div>
-      <div class="risk-text">Adagrasib 及其他 KRAS G12C 抑制剂可能在中国同步获批，压缩窗口期。建议抢先锁定。</div>
+  <div class="g3">
+    <!-- 数据颠覆性 -->
+    <div class="ic">
+      <div class="ic-t">✦ 数据颠覆性</div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">数据来源：临床结果</div>
+      <div class="hb" style="margin:0 0 10px 0;">
+        <div class="hb-t">mOS 获益明确</div>
+        <p style="font-size:12px;">
+          NSCLC 2L/3L：索托拉西布 <strong>mOS=10.2 月</strong> vs 多西他赛 6.9 月<br>
+          CRC 3L：联合帕尼单抗 <strong>mOS=13.6 月</strong><br>
+          ESMO2025 & ELCC2026 数据积极
+        </p>
+      </div>
     </div>
-    <div class="risk-card">
-      <div class="risk-level risk-low">低-中</div>
-      <div class="risk-title">NMPA 审批风险</div>
-      <div class="risk-text">基于 FDA/PMDA 已获批 + 中国桥接试验，获批确定性较高。但需关注 CDE 对附条件批准的收紧趋势。</div>
+    <!-- 机制首创性 -->
+    <div class="ic">
+      <div class="ic-t">◆ 机制首创性</div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">数据来源：靶点-关联药物数量</div>
+      <p style="font-size:13px;"><strong>关联药物数量 203+</strong>，大于 5，需展示明细。</p>
+      <div class="tc" style="margin:0;padding:10px;font-size:12px;">
+        <div class="tc-row"><span class="tc-l">Sotorasib</span><span class="tc-r"><span class="badge bg-g">批准上市</span></span></div>
+        <div class="tc-row"><span class="tc-l">Adagrasib</span><span class="tc-r"><span class="badge bg-g">批准上市</span></span></div>
+        <div class="tc-row"><span class="tc-l">Divarasib</span><span class="tc-r"><span class="badge bg-p">临床 3 期</span></span></div>
+        <div class="tc-row"><span class="tc-l">Opnurasib</span><span class="tc-r"><span class="badge bg-p">临床 3 期</span></span></div>
+        <div class="tc-row"><span class="tc-l">CRISPR-Target KRA...</span><span class="tc-r"><span class="badge bg-c">临床前</span></span></div>
+        <div class="tc-row"><span class="tc-l">EB-TM1</span><span class="tc-r"><span class="badge bg-c">临床前</span></span></div>
+        <div class="tc-row"><span class="tc-l">GRAD-1405</span><span class="tc-r"><span class="badge bg-c">临床前</span></span></div>
+        <div class="tc-row"><span class="tc-l" style="color:var(--blue);font-weight:600;">… 其余 196+</span><span class="tc-r" style="font-size:11px;">含临床前/早期研究</span></div>
+      </div>
     </div>
-    <div class="risk-card">
-      <div class="risk-level risk-mid">中</div>
-      <div class="risk-title">定价与医保</div>
-      <div class="risk-text">First-in-Class 创新药面临国家医保谈判降价压力。需测算不同降价情景下的投资回报。</div>
-    </div>
-    <div class="risk-card">
-      <div class="risk-level risk-low">低</div>
-      <div class="risk-title">安全性信号</div>
-      <div class="risk-text">已有 5 年上市后安全性数据，无重大安全性信号。无需额外担忧。</div>
-    </div>
-  </div>
-
-  <div class="sub-title">行动计划</div>
-  <div class="act-grid">
-    <div class="act-card">
-      <div class="act-icon">①</div>
-      <div class="act-name">启动尽职调查</div>
-      <div class="act-desc">联系 Amgen 中国团队或 BeOne Medicines，了解当前中国权益状态及合作意愿</div>
-    </div>
-    <div class="act-card">
-      <div class="act-icon">②</div>
-      <div class="act-name">评估交易结构</div>
-      <div class="act-desc">对比百济/成美先例，初步构建首付款+里程碑+销售分成测算模型</div>
-    </div>
-    <div class="act-card">
-      <div class="act-icon">③</div>
-      <div class="act-name">内部产品组合评估</div>
-      <div class="act-desc">评估本品与我方现有肿瘤管线协同性、销售团队覆盖能力</div>
-    </div>
-    <div class="act-card">
-      <div class="act-icon">④</div>
-      <div class="act-name">NMPA 审评路径调研</div>
-      <div class="act-desc">核实中国临床 3 期数据要求和桥接试验方案，评估获批时间线</div>
-    </div>
-    <div class="act-card">
-      <div class="act-icon">⑤</div>
-      <div class="act-name">市场竞争监控</div>
-      <div class="act-desc">跟踪 Adagrasib 及其他 KRAS G12C 抑制剂在中国的研发进度</div>
-    </div>
-    <div class="act-card">
-      <div class="act-icon">⑥</div>
-      <div class="act-name">管理层汇报</div>
-      <div class="act-desc">准备投资委员会汇报材料，包括估值模型、风险矩阵和推荐方案</div>
-    </div>
-  </div>
-
-  <div style="background:var(--blue-l);border-radius:8px;padding:16px 20px;margin:20px 0;">
-    <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px;">📋 下一步待决事项</div>
-    <div style="font-size:13px;color:var(--ink2);line-height:1.7;">
-      1. 是否立即启动与 Amgen 的非正式接触？<br>
-      2. 我方对 KRAS G12C 靶点的战略优先级如何？<br>
-      3. 内部是否有对应临床开发资源承接中国桥接试验？<br>
-      4. 建议首次 BD 会议时间窗口：__月__日
+    <!-- 商业稀缺性 -->
+    <div class="ic">
+      <div class="ic-t">▲ 商业稀缺性</div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">数据来源：批准-剂型（去重）</div>
+      <div class="dose-box" style="margin:0;">
+        <div class="dose-item" style="padding:10px;">
+          <div class="dose-label">剂型</div>
+          <div class="dose-val">片剂</div>
+        </div>
+        <div class="dose-item" style="padding:10px;">
+          <div class="dose-label">给药途径</div>
+          <div class="dose-val">口服</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--ink3);margin-top:6px;">口服片剂，给药便捷，患者依从性好，商业转化确定性高。上市初期无直接竞品。</p>
     </div>
   </div>
 </section>
@@ -397,7 +392,7 @@ tbody tr:hover{background:var(--blue-l)}
 
 <div class="footer">
   <strong>索托拉西布（Sotorasib/LUMAKRAS）BD 评估报告</strong><br>
-  报告生成：2026年05月28日 &nbsp;·&nbsp; 仅供内部决策参考
+  报告生成：2026年05月28日 &nbsp;·&nbsp; 双轨筛选框架 &nbsp;·&nbsp; 仅供内部决策参考
 </div>
 
 </body>
